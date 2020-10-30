@@ -183,7 +183,11 @@ function isPrime(number) {
 
 // Loop Muscle Memory
 // Practice typing the syntax for loops! Type each snippet 5 times.
-// Focus on using proper style and indentation. Be sure to test your code by running it after each repetition. You'll be surprised and also annoyed at what details you missed! Learn from those typos.
+// Focus on using proper style and indentation. 
+// Be sure to test your code by running it after each repetition. 
+// You'll be surprised and also annoyed at what details you missed! 
+// Learn from those typos.
+
 
 function printForwards(start, end) {
   for (var counter = start; counter <= end; counter++) {
