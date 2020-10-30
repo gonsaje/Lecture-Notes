@@ -4,7 +4,9 @@
 // it does not need to return.
 
 function logBetween(lowNum, highNum) {
-
+    for (var i = lowNum; i <= highNum; i++) {
+        console.log(i); //0
+    }
 }
 
 
@@ -33,7 +35,9 @@ function logBetween(lowNum, highNum) {
 //
 
 function logBetweenStepper(min, max, step) {
-
+    for (var i = min; i <= max; i += step) {
+        console.log(i);
+    }
 }
 
 // Examples:
@@ -64,12 +68,16 @@ function logBetweenStepper(min, max, step) {
 //
 
 function printFives(max) {
-
+    for (var i = 0; i < max; i += 1) {
+        if (i % 5 === 0) {
+            console.log(i);
+        }
+    }
 }
 
-function printFives(max) {
+// function printFives(max) {
 
-}
+// }
 
 // Example:
 //
@@ -87,7 +95,9 @@ function printFives(max) {
 //
 
 function printReverse(min, max) {
-
+    for (var i = max - 1; i > min; i--) {
+        console.log(i);
+    }
 }
 
 // Examples
@@ -110,8 +120,14 @@ function printReverse(min, max) {
 // than or equal to max.
 //
 
-function sumNums(max) {
+function sumNums(max) { // 4
+    var total = 0;
 
+    for (var i = 1; i <= max; i += 1) {
+        total += i; 
+    }
+
+    return total;
 }
 
 // Examples:
@@ -129,7 +145,7 @@ function sumNums(max) {
 //
 
 function isFactorOf(number, factor) {
-
+    return number % factor === 0;
 }
 
 // Examples:
@@ -146,12 +162,18 @@ function isFactorOf(number, factor) {
 //
 
 function fizzBuzz(max) {
-
+    for (var i = 0; i < max; i++) {
+        if ((i % 3 === 0 && i % 5 === 0)) {
+            continue;
+        } else if (i % 3 === 0 || i % 5 === 0) {
+            console.log(i);
+        }
+    }
 }
 
 // Examples:
 //
-// console.log(fizzBuzz(20)); // prints
+// fizzBuzz(20); // prints
 // 3
 // 5
 // 6
@@ -168,7 +190,17 @@ function fizzBuzz(max) {
 //
 
 function isPrime(number) {
+    if (number < 2) {
+        return false;
+    }
 
+    for (var i = 2; i < number; i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 // Examples:
@@ -210,24 +242,24 @@ function printBackwards(start, end) {
 // How will these programs evaluate?
 // Predict what will happen in the code below, and then run the code to find out!
 
-function func1(num) {
-  return num + 50;
+function func1(num) { // 5
+  return num + 50; //55
 }
 
-function func2(num) {
-  return num + " bottles of beer on the wall";
+function func2(num) { // 55
+  return num + " bottles of beer on the wall"; // "55 bottles...""
 }
 
-function func3(num) {
-  var x = func1(num);
-  return func2(x);
+function func3(num) { // 5
+  var x = func1(num); // func1(5) => 55
+  return func2(x); //func2(55)
 }
 
 var result = func3(5);
 // console.log(result); // What does this print out?
 
-var foo = function(name) {
-  return "Dance " + name + ", dance! "
+var foo = function(name) { // "Anthony"
+  return "Dance " + name + ", dance! " // "DAnce Anthony, dance!"
 }
 
 var bar = function() {
@@ -255,11 +287,15 @@ function sayHiNTimes(n) {
 
   while (i < n) {
     console.log("Hi");
+
+    i++;
   }
 }
 
+
+
 function isFive(n) {
-  if (n = 5) {
+  if (n === 5) {
     return true;
   } else {
     return false;
@@ -270,13 +306,13 @@ function isFive(n) {
 // Complete the tables and check your work in the REPL.
 
 // x	    y	    z	     x && y || z	    x && (y || z)
-// true	    true	false	 
-// true	    false	false	 	                            
-// false	true	false	                    	
-// false	false	false	                    
+// true	    true	false	 true               true    
+// true	    false	false	 false	            false           
+// false	true	false	 false              false	
+// false	false	false	 false              false    
 
 // x	    y	    z	      x || y && z	    x || (y && z)
-// true	    true	false		
-// true	    false	false		
-// false	true	false		
-// false	false	false		
+// true	    true	false	  true	            true
+// true	    false	false	  true	            true
+// false	true	false	  false             false
+// false	false	false	  false             false	
