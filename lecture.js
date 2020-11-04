@@ -1,3 +1,5 @@
+// W2D2
+
 // for (var i = 0; i < 3; i++) { //run once
 //     console.log("i is " + i); //iterated thrice
 //     for (var j = 0; j < 3; j++) { //run three
