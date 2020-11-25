@@ -1,16 +1,16 @@
-4 + 4 / 2
+// 4 + 4 / 2
 
-(2 + -7) * 3
+// // (2 + -7) * 3
 
-101 % 10
+// 101 % 10
 
-12 - 4 % 3
+// 12 - 4 % 3
 
-true && false
+// true && false
 
-true && !(false || false)
+// console.log(true && !(false || false)) // true
 
-!true && !(false || false)
+// console.log(!true && !(false || false)) // false
 
 'cat' + 'dog'
 
@@ -50,44 +50,46 @@ true && !(false || false)
 
 'new york'[1]
 
-'san francisco'[2 * 3]
+// console.log('san francisco'[2 * 3]) // "a"
 
-'bootcamp'[3].toUpperCase()
+// // 'bootcamp'[3].toUpperCase()
 
-'bootcamp'.indexOf('T')
+// console.log('bootcamp'.indexOf('T')) // -1
 
-'bootcamp'.indexOf('camp')
+// 'bootcamp'.indexOf('camp')
 
-'bootcamp'.indexOf('o') > -1
+// console.log('bootcamp'.indexOf('o') > -1) // true
 
-'science'.indexOf('x') === -1
+// console.log('science'.indexOf('x') === -1) // true
 
 
 
 // // 1
-// var idx = 'abcde'.indexOf('D');
-// idx = idx + 11;
-// console.log(idx); // ?
-// idx * 2;
-// console.log(idx); // ?
-// // 2
+// var idx = 'abcde'.indexOf('D'); // -1
+// idx = idx + 11; // 10
+// console.log(idx); // 10
+// idx * 2; // 20
+// console.log(idx); // 10
+
+// 2
 // var num = 33;
-// var isEven = num % 2 === 0;
-// console.log(isEven); // ?
-// console.log(!isEven); // ?
+// var isEven = num % 2 === 0; // false // 5 % 10 ===> 5
+// console.log(isEven); // false
+// console.log(!isEven); // true
 // // 3
 // var str1 = 'marker';
-// var num = 'whiteboard'.length - str1.length;
-// console.log(num); // ?
+// var num = 'whiteboard'.length - str1.length; // 10 - 6 ==> 4
+// console.log(num); // 4
 // var str2 = 'bootcamp';
-// console.log(str2[num].toUpperCase()); // ?
-// var char = str2[num].toLowerCase(); // ?
-// console.log(char + '!'); // ?
+// console.log(str2[num].toUpperCase()); // "C"
+// var char = str2[num].toLowerCase(); // "c"
+// console.log(char + '!'); // "c!"
+
 // // 4
 // var sentence = 'welcome to bootcamp prep';
 // var lastChar = sentence[sentence.length - 1];
-// console.log(lastChar); // ?
-// console.log(sentence.indexOf(lastChar)); // ?
+// console.log(lastChar); // "p"
+// console.log(sentence.indexOf(lastChar)); // 18
 
 // //CONDITIONALS
 
@@ -99,7 +101,7 @@ true && !(false || false)
 // } else {
 //   console.log('younger than 30');
 // }
-// // 6
+// 6
 // var str = 'pizza'; // try different strings here
 
 // if (str.length > 10) {
@@ -107,6 +109,7 @@ true && !(false || false)
 // } else {
 //   console.log('short string');
 // }
+
 // if (str[0] === 'p') {
 //   console.log('starts with p');
 // }
@@ -117,6 +120,10 @@ true && !(false || false)
 //   console.log('divisible by 3');
 // } else if (num % 5 === 0) {
 //   console.log('divisible by 5');
+// } else if (num % 15 === 0) {
+//     console.log("both");
+// } else {
+//     console.log("the end");
 // }
 // // 8
 // var num = 15; // try different numbers here
@@ -137,7 +144,7 @@ true && !(false || false)
 //   console.log('ends with a capital!');
 // }
 // // 10
-// var num = -44; // try different numbers here
+// var num = -44; // try different numbers here // 
 
 // if (num > 0) {
 //   console.log('positive');
