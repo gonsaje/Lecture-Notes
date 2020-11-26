@@ -14,17 +14,18 @@
 // isOdd(5);    // => true
 // isOdd(-17);  // => true
 
+function isOdd(num) {
+  if (num % 2 === 0) {
+    return false;
+  }
+
+  return true;
+}
+
 // function isOdd(num) {
-//   if (num % 2 === 0) {
-//       return false;
-//   } else {
-//       return true;
-//   }
+//   return num % 2 !== 0
 // }
 
-function isOdd(num) {
-    return num % 2 !== 0;
-}
 
 // console.log(isOdd(2));
 // console.log(isOdd(5));
@@ -41,8 +42,8 @@ function isOdd(num) {
 //
 
 function plusFive(num) {
-    var sum = num + 5;
-    return sum;
+  var sum = num + 5;
+  return sum;
 }
 
 // console.log(plusFive(10));
@@ -60,17 +61,17 @@ function plusFive(num) {
 // threeOrSeven(42);  // => true
 // threeOrSeven(8);   // => false
 //
-// function threeOrSeven(num) {
-//     if (num % 3 === 0 || num % 7 === 0) {
-//         return true;
-//     } else {
 
-//         return false;
-//     }
+// function threeOrSeven(num) {
+//   return (num % 3 === 0 || num % 7 === 0)
 // }
 
 function threeOrSeven(num) {
-    return num % 3 === 0 || num % 7 === 0;
+  if (num % 3 === 0 || num % 7 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // console.log(threeOrSeven(3))
@@ -83,12 +84,14 @@ function threeOrSeven(num) {
 // just print using console.log
 //
 // Examples:
-// hello("child");    // prints "Hello, child"
-// hello("Anthony");  // prints "Hello, Anthony"
+
 //
 function hello(str) {
-  console.log('"' + "Hello, " + str + '"');
+  console.log(`"` + "Hello, " + str + '"');
 }
+
+// hello("child");    // prints "Hello, child"
+// hello("Anthony");  // prints "Hello, Anthony"
 
 
 
@@ -117,7 +120,7 @@ function yell(string) {
 // whisper("YEA! that was fun"); // => "...yea! that was fun..."
 
 function whisper(string) {
-    return "..." + string.toLowerCase() + "...";
+  return "..." + string.toLowerCase() + "...";
 }
 
 // console.log(whisper("Hey Anthony"))
@@ -134,12 +137,17 @@ function whisper(string) {
 // isSubstring("Time to program", "time"); // => true
 // isSubstring("Jump for joy", "joys"); // => false
 //
-function isSubstring(searchString, subString) {
-    var lowerCase = searchString.toLowerCase();
-    var low2 = subString.toLowerCase();
-    return lowerCase.indexOf(low2) > -1;
-}
+// function isSubstring(searchString, subString) {
+//   if (searchString.toLowerCase().indexOf(subString) > -1) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
+function isSubstring(searchString, subString) {
+  return searchString.toLowerCase().indexOf(subString) > -1;
+}
 // console.log(isSubstring("The cat went to the store", "he cat went"))
 // console.log(isSubstring("Time to program", "time"))
 // console.log(isSubstring("Jump for joy", "joys"))
@@ -153,9 +161,7 @@ function isSubstring(searchString, subString) {
 // echo("JUMp"); // => "JUMP ... JUMp ... jump"
 //
 function echo(string) {
-    var allUpper = string.toUpperCase();
-    var allLower = string.toLowerCase();
-    return allUpper + "..." + string + "..." + allLower;
+  return string.toUpperCase() + " ... " + string + " ... " + string.toLowerCase();
 }
 
 // console.log(echo("Mom!"))
@@ -172,11 +178,16 @@ function echo(string) {
 // isEven(2); // => true
 // isEven(5); // => false
 
+// function isEven(num) {
+//   return !isOdd(num);
+// }
+
 function isEven(num) {
-    if (isOdd(num)) {
-        return false;
-    }
+  if (num % 2 === 0) {
     return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -195,10 +206,8 @@ function isEven(num) {
 // averageOfFour(1, 2, 3, 4); // => 2.5
 
 function averageOfFour(num1, num2, num3, num4) {
-    var sum = (num1 + num2 + num3 + num4);
-    var avg = sum / 4;
-    return avg;
 
+  return (num1 + num2 + num3 + num4) / 4;
 }
 
 // console.log(averageOfFour(10, 10, 15, 5))
@@ -253,8 +262,8 @@ function checkNumber(num) {
 // Based on the values of A and B from the first two columns, complete the truth table. 
 // Check your work in the REPL.
 
-// A	  B	        A && B	 A || B
-// True	  True	    True	 True
+//   A	    B	   A && B	  A || B
+// True	  True	  True	   True
 // True	  False		False    True
 // False  True		False    True
 // False  False		False    False
@@ -263,7 +272,7 @@ function checkNumber(num) {
 // Truthy or Falsey
 // Predict whether these expressions evaluate to true or false. Check your work in the REPL.
 
-// true && true || false // true
-// true && (false || true) // true
-// (true || false) && (false || false) // false
-// (true || false) || (false || false) // true
+true && true || false // true
+true && (false || true) // true
+(true || false) && (false || false) // false
+(true || false) || (false || false) // true
