@@ -4,10 +4,7 @@
 //
 
 function logEach(array) {
-    for (var i = 0; i < array.length; i++) {
-        var ele = array[i];
-        console.log(i + ": " + ele);
-    }
+    
 }
 
 // Example:
@@ -24,13 +21,7 @@ function logEach(array) {
 //
 
 function range(start, end) {
-    var result = [];
-
-    for (var i = start; i <= end; i++) {
-        result.push(i);
-    }
-
-    return result;
+    
 }
 
 // Examples:
@@ -47,14 +38,7 @@ function range(start, end) {
 //
 
 function sumArray(array) {
-    var sum = 0;
-
-    for (var i = 0; i < array.length; i++) { //2
-        var ele = array[i]; // 4
-        sum += ele; // sum => 15
-    }
-
-    return sum;
+    
 }
 
 // Examples:
@@ -70,14 +54,7 @@ function sumArray(array) {
 //
 
 function capWords(words) {
-    var result = [];
-
-    for (var i = 0; i < words.length; i++) {
-        var word = words[i].toUpperCase();
-        result.push(word);
-    }
-
-    return result;
+   
 }
 
 // Example:
@@ -92,16 +69,7 @@ function capWords(words) {
 //
 
 function wordPeriods(sentence) {
-    var words = sentence.split(" "); // => ["hello", "world"]
-    var result = [];
-
-    for (var i = 0; i < words.length; i++) {
-        var word = words[i];
-        var newWord = word + ".";
-        result.push(newWord);
-    }
-
-    return result.join(" ");    
+       
 }
 
 // Examples:
@@ -117,19 +85,7 @@ function wordPeriods(sentence) {
 //
 
 function maxValue(array) {
-    var max = array[0];
-    if (array.length === 0) {
-        return null;
-    }
-
-    for (var i = 0; i < array.length; i++) {
-        var number = array[i];
-        if (max === null || max < number) {
-            max = number;
-        }
-    }
-
-    return max;
+    
 }
 
 // Examples:
@@ -149,15 +105,7 @@ function maxValue(array) {
 //
 
 function myIndexOf(array, target) {
-    for (var i = 0; i < array.length; i++) {
-        var ele = array[i];
-
-        if (ele === target) {
-            return i;
-        }
-    }
-
-    return -1;
+    
 }
 
 // Examples:
@@ -173,16 +121,7 @@ function myIndexOf(array, target) {
 //
 
 function factorArray(array, number) {
-    var result = []; //[2, 4, 5]
-
-    for (var i = 0; i < array.length; i++) {
-        var factor = array[i]; // 5
-        if (number % factor === 0) {
-            result.push(factor);
-        }
-    }
-
-    return result;
+    
 }
 
 // Examples:

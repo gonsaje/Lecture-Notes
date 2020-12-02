@@ -4,9 +4,9 @@
 // it does not need to return.
 
 function logBetween(lowNum, highNum) {
-    for (var i = lowNum; i <= highNum; i++) {
-        console.log(i); //0
-    }
+  for (var i = lowNum; i <= highNum; i++) {
+    console.log(i);
+  }
 }
 
 
@@ -14,13 +14,13 @@ function logBetween(lowNum, highNum) {
 // Examples:
 //
 // logBetween(-1, 2); // prints
-// -1
-// 0
-// 1
-// 2
-//
+// // -1
+// // 0
+// // 1
+// // 2
+// //
 // logBetween(14, 6); // prints nothing
-//
+// //
 // logBetween(4,6); // prints
 // 4
 // 5
@@ -36,7 +36,7 @@ function logBetween(lowNum, highNum) {
 
 function logBetweenStepper(min, max, step) {
     for (var i = min; i <= max; i += step) {
-        console.log(i);
+      console.log(i);
     }
 }
 
@@ -68,16 +68,18 @@ function logBetweenStepper(min, max, step) {
 //
 
 function printFives(max) {
-    for (var i = 0; i < max; i += 1) {
-        if (i % 5 === 0) {
-            console.log(i);
-        }
+    for (let i = 0; i < max; i++) {
+      if (i % 5 === 0) {
+        console.log(i);
+      }
     }
 }
 
-// function printFives(max) {
-
-// }
+function printFives(max) {
+  for (let i = 0; i < max; i += 5) {
+    console.log(i);
+  }
+}
 
 // Example:
 //
@@ -96,7 +98,7 @@ function printFives(max) {
 
 function printReverse(min, max) {
     for (var i = max - 1; i > min; i--) {
-        console.log(i);
+      console.log(i);
     }
 }
 
@@ -121,13 +123,13 @@ function printReverse(min, max) {
 //
 
 function sumNums(max) { // 4
-    var total = 0;
+  var sum = 0;
 
-    for (var i = 1; i <= max; i += 1) {
-        total += i; 
-    }
+   for (var i = 0; i <= max; i++) {
+      sum += i;
+   }
 
-    return total;
+   return sum;
 }
 
 // Examples:
@@ -145,7 +147,7 @@ function sumNums(max) { // 4
 //
 
 function isFactorOf(number, factor) {
-    return number % factor === 0;
+   return (number % factor === 0);
 }
 
 // Examples:
@@ -162,13 +164,11 @@ function isFactorOf(number, factor) {
 //
 
 function fizzBuzz(max) {
-    for (var i = 0; i < max; i++) {
-        if ((i % 3 === 0 && i % 5 === 0)) {
-            continue;
-        } else if (i % 3 === 0 || i % 5 === 0) {
-            console.log(i);
-        }
-    }
+   for (var i = 0; i < max; i++) {
+     if ((i % 3 === 0 && i % 5 !== 0) || (i % 3 !== 0 && i % 5 === 0)) {
+        console.log(i);
+     }
+   }
 }
 
 // Examples:
@@ -190,17 +190,17 @@ function fizzBuzz(max) {
 //
 
 function isPrime(number) {
-    if (number < 2) {
+  if (number < 2) {
+    return false;
+  } 
+
+  for (var factor = 2; factor < number; factor++) {
+    if (number % factor === 0) {
         return false;
     }
-
-    for (var i = 2; i < number; i++) {
-        if (number % i === 0) {
-            return false;
-        }
-    }
-
-    return true;
+  }
+  
+  return true;
 }
 
 // Examples:
@@ -221,19 +221,17 @@ function isPrime(number) {
 // Learn from those typos.
 
 
-function printForwards(start, end) {
-  for (var counter = start; counter <= end; counter++) {
-    console.log(counter);
+function printForwards(string) {
+  for (var i = 0; i < string.length; i++) {
+
   }
 }
 
 // printForwards(4, 11); // feel free to change the numbers being passed
 
-function printBackwards(start, end) {
-  var i = end;
-  while (i >= start) {
-    console.log(i);
-    i--;
+function printBackwards(string) {
+  for (var i = string.length - 1; i >= 0; i--) {
+    
   }
 }
 
@@ -276,7 +274,7 @@ var bar = function() {
 }
 
 var result = bar();
-// console.log(result); // What does this print out?
+console.log(result); // What does this print out?
 
 
 // Debug The Programs
@@ -287,8 +285,6 @@ function sayHiNTimes(n) {
 
   while (i < n) {
     console.log("Hi");
-
-    i++;
   }
 }
 
@@ -297,7 +293,8 @@ function sayHiNTimes(n) {
 function isFive(n) {
   if (n === 5) {
     return true;
-  } else {
+  } 
+  else {
     return false;
   }
 }
@@ -306,13 +303,13 @@ function isFive(n) {
 // Complete the tables and check your work in the REPL.
 
 // x	    y	    z	     x && y || z	    x && (y || z)
-// true	    true	false	 true               true    
-// true	    false	false	 false	            false           
-// false	true	false	 false              false	
-// false	false	false	 false              false    
+// true	 true	  false	                
+// true	 false	false		                      
+// false	true	false	             	
+// false	false	false	                 
 
 // x	    y	    z	      x || y && z	    x || (y && z)
-// true	    true	false	  true	            true
-// true	    false	false	  true	            true
-// false	true	false	  false             false
-// false	false	false	  false             false	
+// true	 true	 false		          
+// true	 false false		          
+// false true	 false	             
+// false false false	              
