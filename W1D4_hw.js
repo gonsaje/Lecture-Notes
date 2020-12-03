@@ -4,12 +4,15 @@
 //
 
 function logEach(array) {
-    
+    for (var i = 0; i < array.length; i++) {
+        var ele = array[i];
+        console.log(i + ": " + ele);
+    }
 }
 
 // Example:
 //
-// logEach(["Anthony", "John", "Carson"]); // prints
+// logEach(["Anthony", "John", "Carson", "Huey"]); // prints
 // 0: Anthony
 // 1: John
 // 2: Carson
@@ -21,7 +24,12 @@ function logEach(array) {
 //
 
 function range(start, end) {
-    
+    var result = [];
+
+    for (var i = start; i <= end; i++) {
+        result.push(i);
+    }
+    return result;
 }
 
 // Examples:
@@ -38,7 +46,14 @@ function range(start, end) {
 //
 
 function sumArray(array) {
-    
+    var sum = 0;
+
+    for (var i = 0; i < array.length; i++) {
+        var num = array[i];
+        sum += num;
+    }
+
+    return sum;
 }
 
 // Examples:
@@ -54,7 +69,15 @@ function sumArray(array) {
 //
 
 function capWords(words) {
-   
+   var capArr = [];
+
+   for (var i = 0; i < words.length; i++) {
+       var word = words[i];
+       var capWord = word.toUpperCase();
+       capArr.push(capWord);
+   }
+
+   return capArr;
 }
 
 // Example:
@@ -69,7 +92,16 @@ function capWords(words) {
 //
 
 function wordPeriods(sentence) {
+    var words = sentence.split(" "); // ["hello", "world"]
+    var newArr = [];
+
+    for (var i = 0; i < words.length; i++) {
+        var word = words[i];
+        var newWord = word + ".";
+        newArr.push(newWord);
+    }
        
+    return newArr.join(" ");
 }
 
 // Examples:
@@ -85,12 +117,26 @@ function wordPeriods(sentence) {
 //
 
 function maxValue(array) {
+    // if (array.length === 0) {
+    //     return null;
+    // }
+
+    // var max = array[0]; //12
+    var max = null;
+
+    for (var i = 0; i < array.length; i++) { //i = 2
+        var num = array[i]; // 43
+        if (num > max || max === null) { //43 > 12
+            max = num; // max = 43
+        }
+    }
     
+    return max;
 }
 
 // Examples:
 //
-// console.log(maxValue([12, 6, 43, 2])); // => 43
+// console.log(maxValue([12, 6, 43])); // => 43
 // console.log(maxValue([])); // => null
 // console.log(maxValue([-4, -10, 0.43])); // => 0.43
 
@@ -105,13 +151,21 @@ function maxValue(array) {
 //
 
 function myIndexOf(array, target) {
-    
+    for (var i = 0; i < array.length; i++) {
+        var ele = array[i];
+
+        if (ele === target) {
+            return i;
+        }
+    }
+
+    return -1;
 }
 
 // Examples:
 //
 // console.log(myIndexOf([1,2,3,4],4)) //=> 3
-// console.log(myIndexOf([5,6,7,8],2)) //=> -1
+// console.log(myIndexOf([5,6,7,8],2)) //=> -1 
 
 //////////////////////////////////
 
@@ -121,7 +175,16 @@ function myIndexOf(array, target) {
 //
 
 function factorArray(array, number) {
+    var factors = [];
+
+    for (var i = 0; i < array.length; i++) {
+        var factor = array[i];
+        if (number % factor === 0) {
+            factors.push(factor);
+        }
+    }
     
+    return factors;
 }
 
 // Examples:
