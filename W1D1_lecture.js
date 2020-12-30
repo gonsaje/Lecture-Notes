@@ -1,113 +1,207 @@
-// Primitive Data Types of JS:
-//  - Strings
-//      - text in js
+// Primitive Data Types
+    // They are all immutable 
+// Strings
+    // All strings except an empty string has a truthy value
+    // "hello"
+    // 'hello'
+    // `hello`
+    // console.log("hello world, I AM LEARNING TO CODE".indexOf("h"));
+    // .toUpperCase();
+    // function makeUserName(name) { // 'kegan g'
+    //     var str = ""
 
-"hello";
-'hello';
-`hello`;
+    //     str += name[0].toUpperCase();
+    // } // KGee
+    // .toLowerCase();
+    // .length;
+    // indices and length are offset by one
+        // index starts 0
+        // while length starts with one
 
-//every string is also true except and empty string ''
+    // .indexOf();
+        // returns the first occurrence of a character or element in a string
+        // when a character/string doesnt exist within the string it returns -1
+        // console.log("hello".slice(0, 3)); //
 
-// console.log("HELLO, I'm hungry!".slice(5, 8)); // 'h'
-'they said, "hello!"'
-// indices start from the number 0 
-// console.log() // built-in method (part of the JS language)
+    // .slice(beginningIndex, endingIndex);
+        // begIndex is inclusive, while endIndex is exclusive
+        // when only one index is inputted, we receive a sliced copy beginning at the index and everything trailing.
+        // will return a slice copy of a certain segment of a string;
+        // one argument is necessary and the second is not
 
-// .toUpperCase() // to invoke a method/function use ()
+    // var str = 'hello';
+    // console.log(str + "h");
+    // console.log(str);
 
-// Properties of strings: .length
+    
+// Numbers
 
-// indexOf(arg) // receives an argument (what char we're looking for) returns index 
-// or -1 if char isn't found in the string
+// console.log(2 * 10 % 3);
 
-// .slice(arg1, arg2) needs at least one num. 1st num is start of slice (inclusive)
-// 2nd num is end of slice (exclusive)
+// number operations +, -, /, *;
+// PEMDAS
+// modulo operator (%): returns the remainder of division
+// if the first number is smaller than the second number 
+    // we'll always return the first number
+    // modulo has the same precendence as mult/div
 
+// Booleans
+// true
+// false
 
-//  - Numbers
+// console.log(Boolean(-29));
+// console.log(Boolean(null));
 
-// console.log((14 + 2) % 5);
-// normal operations of +, -, *, /
-// every number has the boolean value of true except zero
-// modulo (%): returns remainder of division 
-// modulo has same priority in PEMDAS as MD
-// parenthesis, exponents, mult/div/modulo, add/sub
+// Truthy Values & Falsey Values
+    // Undefined, Null, NaN, 0, '', False
 
+// Null : empty value or no value (human input); intentional return 
+// Undefined : a var or function may be defined but has been assigned (computer output)
 
-//  - Boolean
-true // 1
-false // 0
+var num = null;
+var num1;
 
-// console.log(Boolean(-29))
+// console.log(num);
+// console.log(num1);
 
-// every data type in JS has a Boolean value
-
-//  - Null (falsey value) human input
-
-// when null is returned
-// intentional absence of a value
-
-//  - Undefined (falsey value) computer output
-
-// something is wrong
-// something expected wasn't found
-
-//Comparisons
+// Comparisons
 
 // >, <, >=, <=
-// console.log('hello'.length === 5);
 
-// strict comparison ( === ) checks for equal value and same data type 
-// loose comparison ( == ) tries to convert one side to the other/ we will not be using this
-// When checking for more than one condition:
-// AND ( && ) ex. 3 * 20 === 60 && 2 - 2 === 0 checks for both sides to be true (all sides must be true)
-// OR ( || ) is either side true... only one side needs to be true
+var str = "Kegan G";
+var str1 = "KEGAN G"
+// console.log(5 < 20);
+// console.log(str === str.toUpperCase() || str1.length <= 5 && str1[0] === 'K'); // false || false;
+// str1.length <= 5 && str1[0] === 'K' => false
+
+// (===) strict comparison: checks for equal value and same datatype
+// (==) loose comparison: tries convert one side to the other / we will not be using this
+
+// AND && operator: both sides of the AND must be true to return true; takes precendence over OR
+// OR || operator: only one side has to equate to true to return true;
+
+// console.log(20 >= 40);
 
 
-// VARIABLES
-// a way for us to store these data types as information
+// Variables
+// a way for us to save data types as information;
 
-var myString = 'hello'; // trailing camelCase
-// first word is lowercase and every following word is defined by a capital
-myString = 'world';
-// console.log(myString.length);
+var myNum = 5; // trailing camelCase 
+var str1 = "hello";
 
-var myNum = 42;
-// myNum = myNum + 5; // 42 + 5 // right side of reassignment is eval first
-// myNum += 5; // same as myNum = myNum + 5
-// myNum++ // same as myNum += 1 or myNum = myNum + 1
-// myNum-- // postfix add/sub
-//prefix performs operations before console.log
-// console.log(myNum++);
+
+// console.log(myNum /= 4); // myNum = myNum + 4
 // console.log(myNum);
 
-// CONDITIONALS
-var num = 60
+// console.log(myNum++); //postfix return or print the original value
+// // myNum = myNum + 1 // myNum += 1
+// console.log(myNum);
+// console.log(--myNum); // prefix return the altered value
+// console.log(myNum)
 
-if (num > 99) {
-    console.log('large number');
-} else if (num > 50) { // if the first if returns false
-    console.log('medium num');
-} else if (num > 20) {
-    console.log('med-small')
-} else {
-    console.log('small num');
-}
-
-//only one if and only one else, but as many else-if's as you'd like
+// console.log(str1 += "h")
+// console.log(str1);
 
 
-// if (num > 0) {
-//     console.log('positive');
-// } 
-// if (num < 0) { // if the first if returns false
-//     console.log('negative');
-// } 
-// if (num === 0) {
-//     console.log('zero');
+
+// reassignment
+
+var str2 = "goodbye";
+// console.log(str2)
+
+// Conditionals
+
+// direct our code to run a certain logic based on conditions that we set
+
+var myUserName = "JSONG12345";
+var myUserName1 = "Jacob";
+// cut all usernames that are longer than 5
+// if (myUserName.length <= 5) { // if username is less than 5 print
+//     console.log(myUserName);
+// } else if (myUserName === myUserName.toUpperCase()) { // check if usname is uppercase
+//     console.log(myUserName);
+// } else {
+//     console.log(myUserName.slice(0, 5));
 // }
 
+// var num1 = 3;
+
+// if (num1 === 0) {
+//     console.log(num1 + ' is Zero!')
+// } else if (num1 > 10) {
+//     console.log(num1 + " is greater than 10")
+// } else if (num1 % 2 === 0) {
+//     console.log(num1 + ' is even!')
+// } else {
+//     console.log(num1 + ' is odd!')
+// }
+// Undefined
+// Null
 
 
+// console.log(true && false || true); 
+// console.log('Jacob Prall'[6])
+//           0123456
 
+// console.log("hello".length === 5 && 'hello' === 'hello'.toLowerCase()); // 
+
+var num2 = 8;
+
+if (num2 < 7) {
+    num2 += 3 // num2 = num2 + 3
+} else {
+    num2 - 2;
+}
+// console.log(num2);
+
+// help me write code where if a strings length is even we print even / odd if odd
+
+// var str = "good"
+
+// if (str.length % 2 === 0) {
+//     console.log("string is even");
+// } else {
+//     console.log("string is odd");
+// }
+
+// help me write code where we check to see if the first letter of a string is uppercased
+
+// var str1 = 'denny' // D
+
+// if (str1[0] === str1[0].toUpperCase()) {
+//     console.log(true);
+// } else {
+//     console.log(false);
+// }
+
+// number is less than 10 print 'small'
+// number is less than or equal 50 ' medium'
+// everything above 50 is 'large'
+
+// var num = 4;
+// var num = 12;
+// var num = 75;
+// if (num < 10) {
+//     console.log('small');
+// } else if (num <= 50) {
+//     console.log('medium');
+// } else {
+//     console.log('large');
+// }
+
+// ! Bang operator
+// console.log(!false);
+// var num = 7
+// console.log(num > 4 && !(num % 2 === 0));
+
+var str = 'JacobP';
+
+// if the strings is even print the first 4 chars
+// if the strings is odd print the first 3 chars
+
+if (str.length % 2 === 0) {
+    console.log(str.slice(0, 4));
+} else {
+    console.log(str.slice(0, 3));
+}
 
