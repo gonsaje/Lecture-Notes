@@ -8,11 +8,11 @@
 
 true && false
 
-// console.log(true && !(false || false)) // true
+// console.log(true && !(false || false)) // TRUE
 
-// console.log(!true && !(false || false)) // false 
+// console.log(!true && !(false || false)) // false
 
-'cat' + 'dog'
+// 'cat' + 'dog'
 
 // console.log(2 + 'pizza'); // '2pizza'
 
@@ -49,9 +49,9 @@ true && false
 'new york'[0]
 
 'new york'[1]
-// var str = "san francisco";
-// str[2 * 3]; // 
-// console.log('san francisco'[2 * 3]) // a
+
+var str = "san francisco";
+// console.log(str[2 * 3]) // a 
 
 'bootcamp'[3].toUpperCase()
 
@@ -59,39 +59,39 @@ true && false
 
 'bootcamp'.indexOf('camp')
 
-// console.log('bootcamp'.indexOf('o') > -1) // true
-
+// console.log('bootcamp'.indexOf('o') > -1) // true;
+// //           012
 // console.log('science'.indexOf('x') === -1) // true
 
 
 
 // 1
-var idx = 'abcde'.indexOf('D'); // -1
-idx = idx + 11; 
+var idx = 'abcde'.indexOf('D'); // -1 
+idx = idx + 11; // idx += 11;
 // console.log(idx); // 10
-// idx * 2; 
+// idx * 2; // 20
 // console.log(idx); // 10
 
 // 2
-// var num = 33;
-// var isEven = num % 2 === 0; 
+var num = 33;
+var isEven = num % 2 === 0; // false
 // console.log(isEven); // false
-// console.log(!isEven); // true
+// console.log(!isEven); // true;
 
 // 3
 var str1 = 'marker';
 var num = 'whiteboard'.length - str1.length; 
 // console.log(num); // 4
 // var str2 = 'bootcamp';
-// console.log(str2[num].toUpperCase()); // BOOTCAMP
-// var char = str2[num].toLowerCase(); // bootcamp
-// console.log(char + '!'); //bootcamp!
+// console.log(str2[num].toUpperCase()); // 'C'
+// var char = str2[num].toLowerCase(); // 'c'
+// console.log(char + '!'); // 'c!'
 
 // 4 
 var sentence = 'welcome to bootcamp prep'; 
-// var lastChar = sentence[sentence.length - 1]; // 'p'
-// console.log(lastChar); // p
-// console.log(sentence.indexOf(lastChar)); // 18
+var lastChar = sentence[sentence.length - 1]; // 
+console.log(lastChar); // p
+console.log(sentence.indexOf(lastChar)); // 18
 
 // //CONDITIONALS
 
@@ -105,7 +105,7 @@ var age = 30; // try different numbers here
 // }
 
 // 6
-// var str = 'cry'; // 5
+// var str = 'rollercoaster'; // 
 
 // if (str.length > 10) {
 //   console.log('long string');
@@ -113,11 +113,9 @@ var age = 30; // try different numbers here
 //     console.log('starts with p');
 // } else {
 //   console.log('short string');
-// } 
+// }
 
-// // 7
-var num = 47; // try different numbers here
-
+var num = 45; // try different numbers here
 if (num % 3 === 0) {
   console.log('divisible by 3');
 } else if (num % 5 === 0) {
@@ -146,6 +144,7 @@ if (num % 3 === 0) {
 // if (str[str.length - 1] === str[str.length - 1].toUpperCase()) {
 //   console.log('ends with a capital!');
 // }
+
 // // 10
 // var num = -44; // try different numbers here // 
 
@@ -179,4 +178,8 @@ if (num % 3 === 0) {
 //   console.log('else if');
 // } else {
 //   console.log('else');
-// }
+// }og('short string');
+// } 
+
+// // 7
+// var num

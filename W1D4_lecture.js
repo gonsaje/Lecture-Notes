@@ -5,34 +5,45 @@
     // Elements can be anything from a primitive data type to other complex data types
     // Elements are stored sequentially
         // They can be accessed via an index
-
-var arr = [10, 1, 2, 13, 4, 'string', ['a', 'b', 'c'], 5];
-//          0  1  2  3  4     5            6          7 
-
-// console.log(arr[0])
-// console.log(arr[3])
-// console.log(arr[5])
-// console.log(arr[6])
-// console.log(arr[7])
-
-arr[0] = 'hello';
-
-// console.log(arr[0]);
-// console.log(arr);
-
-
-// METHODS:
-
-// console.log(arr.indexOf('hello'));
-
+        
+        // console.log(arr[0])
+        // console.log(arr[3])
+        // console.log(arr[5])
+        // console.log(arr[6])
+        // console.log(arr[arr.length - 1])
+        
+        // str[0] = 'x';
+        // console.log(str)
+        
+        // arr[0] = 'hello';
+        
+        // console.log(arr[0]);
+        // console.log(arr);
+        
+        
+        // METHODS:
+        
+        // console.log(arr.indexOf('hello'));
+        
+        // var str = 'hello';
+        // console.log(str.length); // 5
+        var ids = [1, 2, 'hello', 'howdy', 'hey']
+        // console.log(ids.length); // 5
+        // console.log(ids.indexOf('hello'));
+        
+        
+        var arr = [10, 1, 2, 13, 4, 'string', ['a', 'b', 'c'], 5];
+        //          0  1  2  3  4     5            6          7 
 // console.log(arr.slice(1));
 // slice returns a slice of the original data type from the first index inputted inclusively
 // to second index inputted exclusively;
 // to make a shallow copy of an array;
 
-var copyArr = arr.slice();
-copyArr[0] = 'goodbye';
-copyArr[3] = 'altoids';
+
+
+var copyArr = arr.slice(3); // [10, 1, 2, 13, 4, 'string', ['a', 'b', 'c'], 5];
+// copyArr[0] = 'goodbye';
+// copyArr[3] = 'altoids';
 
 // console.log(arr);
 // console.log(copyArr);
@@ -41,9 +52,13 @@ copyArr[3] = 'altoids';
 copyArr.push('Alfredo');
 // console.log(copyArr);
 
+var str1 = '';
+str1 += 'x';
+// console.log(str1) // 'x';
+
 // .pop() : removes the last element from an array and returns it;
 // console.log(" ");
-// console.log(copyArr.pop());
+var lastEle = copyArr.pop(); // 'Alfredo'
 // console.log(" ");
 // console.log(copyArr);
 
@@ -57,16 +72,19 @@ copyArr.unshift('Z');
 // console.log(copyArr.shift());
 // console.log(copyArr);
 // console.log(" ");
+
 // .splice(<position>, <number of elements>) 
 // removes elements from a index position and returns an array of removed elements
-// console.log(copyArr.splice(2, 3));
+// console.log(copyArr.splice(copyArr.length - 1, 1));
 // console.log(" ");
 // console.log(copyArr)
 
 // .concat() join or merge two or more arrays;
 
 var secArr = ['Denny', 'Kegan'];
+// copyArr.push(secArr);
 var mergedArr = copyArr.concat(secArr);
+// console.log(copyArr);
 // console.log(mergedArr);
 
 
@@ -74,16 +92,17 @@ var mergedArr = copyArr.concat(secArr);
 
 // print every individual element;
 
-// for (var i = 0; i < mergedArr.length; i++) {
-//     console.log(mergedArr[i]);
-// }
+var eleArr = [1, 2, 3]
 
-var i = 0;
+//length => 3
+// index 0...2
 
-// while (i < mergedArr.length) {
-//     console.log(mergedArr[i]);
-//     i++;
-// }
+for (var i = 0; i < eleArr.length; i += 1) { // 0
+    // console.log(eleArr[i]); // 1
+}
+
+
+
 
 var score1 = 10;
 var score2 = 20;
@@ -95,20 +114,20 @@ var classScores = [1, 2, 23, 10, 15, 17]
 // based on input, will divide string into an array of element
 
 var str = 'welcome to bootcamp'
-var wordsArr = str.split("");
+var wordsArr = str.split(" ");
 // console.log(wordsArr);
 
 // .join(); joins an array and its elements on whatever is inputted and returns a string
-var joinedStr = wordsArr.join(" ");
+var joinedStr = wordsArr.join("_");
 // console.log(joinedStr);
 
 function replaceVowelsWithUnderscores(string) {
     var vowels = 'aeiou';
-    var chars = string.split(""); // [ 'h','e','l',l','o']
-    var result = []; //['h', '_', 'l']
+    var chars = string.split(""); // [ 'h','e','l',l','o', ",", " ", ...]
+    var result = []; // ['h', '_'];
 
-    for (var i = 0; i < chars.length; i++) { //1
-        var char = chars[i]; //e
+    for (var i = 0; i < chars.length; i++) { // 1
+        var char = chars[i]; // 'e'
 
         if (vowels.includes(char)) {
             result.push("_");
@@ -122,7 +141,7 @@ function replaceVowelsWithUnderscores(string) {
 
 var input = 'hello, i love coding';
 
-// console.log(replaceVowelsWithUnderscores(input))// 'h_ll_, _ l_v_...'
+console.log(replaceVowelsWithUnderscores(input))// 'h_ll_, _ l_v_...'
 
 
 
@@ -218,4 +237,4 @@ function capitalizeEachWord(sentence) {
 }
 
 var str = 'whenever there are people we go';
-console.log(capitalizeEachWord(str));// => 'Whenever There Are People We Go';
+// console.log(capitalizeEachWord(str));// => 'Whenever There Are People We Go';
