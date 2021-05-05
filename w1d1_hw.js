@@ -1,73 +1,76 @@
-4 + 4 / 2
+// 4 + 4 / 2
 
 // (2 + -7) * 3
 
-101 % 10
+// 101 % 10
 
-12 - 4 % 3
+// 12 - 4 % 3
 
-true && false
+// true && false
 
-// console.log(true && !(false || false)) // TRUE
+// console.log(true && !(false || false)) // true
 
-// console.log(!true && !(false || false)) // false
+// console.log(false || true) // 
 
 // 'cat' + 'dog'
 
 // console.log(2 + 'pizza'); // '2pizza'
 
-// console.log(2.5 * 'fish'); // NaN
+// console.log(2 + '2'); // 
 
-5 >= 11
+// console.log(2.5 * 'fish'); // '2.5fish'
 
-5 === 5.0
+// 5 >= 11
 
-7 !== 7.1
+// 5 === 5.0
 
-5 + 5 > 8
+// 7 !== 7.1
 
-6 + 6 !== 12
+// 5 + 5 > 8
 
-2 > 1 || false
+// 6 + 6 !== 12
+
+// 2 > 1 || false
 
 // console.log('true' === true); // false
 
-10 % 2 === 0
+// 10 % 2 === 0
 
-21 % 2 === 0
+// 21 % 2 === 0
 
-21 % 2 !== 0
+// 21 % 2 !== 0
 
-21 % 2 === 1
+// 21 % 2 === 1
 
-12 % 3 === 0
+// 12 % 3 === 0
 
-9 % 3 === 0
+// 9 % 3 === 0
 
-14 % 3 === 0
+// 14 % 3 === 0
 
-'new york'[0]
+// 'new york'[0]
 
-'new york'[1]
+// 'new york'[1]
 
 var str = "san francisco";
-// console.log(str[2 * 3]) // a 
+// console.log(str[2 * 3]) //a
 
-'bootcamp'[3].toUpperCase()
+var str2 = 'bootcamp'
+// console.log(str2[3].toUpperCase()) // T
+// console.log(str2[3].toUpperCase())
+// console.log(str2.indexOf('T')) // 
 
-// console.log('bootcamp'.indexOf('T')) // -1
+// console.log('bootcamp'.indexOf('camp')) //4
 
-'bootcamp'.indexOf('camp')
+// console.log('bootcamp'.indexOf('o') > -1) // true
 
-// console.log('bootcamp'.indexOf('o') > -1) // true;
-// //           012
-// console.log('science'.indexOf('x') === -1) // true
+// console.log('science'.indexOf('x') === -1) // 
 
 
 
 // 1
-var idx = 'abcde'.indexOf('D'); // -1 
-idx = idx + 11; // idx += 11;
+var idx = 'abcde'.indexOf('D'); // -1
+idx = idx + 11; // 10
 // console.log(idx); // 10
 // idx * 2; // 20
 // console.log(idx); // 10
@@ -76,22 +79,24 @@ idx = idx + 11; // idx += 11;
 var num = 33;
 var isEven = num % 2 === 0; // false
 // console.log(isEven); // false
-// console.log(!isEven); // true;
+// console.log(!isEven); // true
 
 // 3
 var str1 = 'marker';
-var num = 'whiteboard'.length - str1.length; 
+var num = 'whiteboard'.length - str1.length; // 4
 // console.log(num); // 4
 // var str2 = 'bootcamp';
-// console.log(str2[num].toUpperCase()); // 'C'
-// var char = str2[num].toLowerCase(); // 'c'
-// console.log(char + '!'); // 'c!'
+// console.log(str2[num].toUpperCase()); // C
+// var char = str2[num]; // c
+// console.log(char + '!'); // c!
 
 // 4 
+
 var sentence = 'welcome to bootcamp prep'; 
-var lastChar = sentence[sentence.length - 1]; // 
-console.log(lastChar); // p
-console.log(sentence.indexOf(lastChar)); // 18
+var lastChar = sentence[sentence.length - 1]; // p
+// console.log(lastChar); // p
+// console.log(sentence.indexOf(lastChar)); // 18
+// console.log(sentence.length - 1)
 
 // //CONDITIONALS
 
@@ -100,53 +105,68 @@ var age = 30; // try different numbers here
 
 // if (age > 30) {
 //   console.log('older than 30');
+// } else if (age === 30) {
+//   console.log('30 years old')
 // } else {
 //   console.log('younger than 30');
 // }
 
 // 6
-// var str = 'rollercoaster'; // 
+// var str = 'roller'; // 
 
 // if (str.length > 10) {
+
 //   console.log('long string');
+
 // } else if (str[0] === 'p') {
+
 //     console.log('starts with p');
+
 // } else {
+
 //   console.log('short string');
+
 // }
 
-var num = 45; // try different numbers here
-if (num % 3 === 0) {
-  console.log('divisible by 3');
-} else if (num % 5 === 0) {
-  console.log('divisible by 5');
-} else if (num % 15 === 0) {
-    console.log("both");
-} else {
-    console.log("the end");
-}
 
-// // 8
-// var num = 15; // try different numbers here
+var num = 45; // try different numbers here
 
 // if (num % 3 === 0) {
 //   console.log('divisible by 3');
+// } else if (num % 5 === 0) {
+//   console.log('divisible by 5');
+// } else if (num % 15 === 0) { // 15 => 3 * 5
+//     console.log("both");
+// } else {
+//     console.log("the end");
 // }
+
+// // 8
+var num = 15; // try different numbers here
+
+// if (num % 3 === 0) {
+//   console.log('divisible by 3');
+// } 
+
 // if (num % 5 === 0) {
 //   console.log('divisible by 5');
 // }
-// // 9
-// var str = 'App AcademY'; // try different strings here
 
-// if (str[0] === str[0].toUpperCase()) {
-//   console.log('starts with a capital!');
-// }
-// if (str[str.length - 1] === str[str.length - 1].toUpperCase()) {
-//   console.log('ends with a capital!');
-// }
+
+// // 9
+var str = 'App AcademY'; // try different strings here
+// length starts 1
+// index starts at 0
+if (str[0] === str[0].toUpperCase()) { 
+  console.log('starts with a capital!');
+}
+
+if (str[str.length - 1] === str[str.length - 1].toUpperCase()) { 
+  console.log('ends with a capital!');
+}
 
 // // 10
-// var num = -44; // try different numbers here // 
+var num = -44; // try different numbers here // 
 
 // if (num > 0) {
 //   console.log('positive');
@@ -155,6 +175,7 @@ if (num % 3 === 0) {
 // } else {
 //   console.log(0);
 // }
+
 // if (num % 2 === 0) {
 //   console.log('even');
 // } else {

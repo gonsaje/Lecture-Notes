@@ -4,7 +4,7 @@
 // it does not need to return.
 
 function logBetween(lowNum, highNum) {
-  for (var i = lowNum; i <= highNum; i++) {
+  for (let i = lowNum; i <= highNum; i++) {
     console.log(i);
   }
 }
@@ -14,13 +14,13 @@ function logBetween(lowNum, highNum) {
 // Examples:
 //
 // logBetween(-1, 2); // prints
-// // -1
-// // 0
-// // 1
-// // 2
-// //
+// // // -1
+// // // 0
+// // // 1
+// // // 2
+// // //
 // logBetween(14, 6); // prints nothing
-// //
+// // //
 // logBetween(4,6); // prints
 // 4
 // 5
@@ -35,9 +35,9 @@ function logBetween(lowNum, highNum) {
 //
 
 function logBetweenStepper(min, max, step) {
-    for (var i = min; i <= max; i += step) {
-      console.log(i);
-    }
+  for (let i = min; i <= max; i += step) {
+    console.log(i);
+  }
 }
 
 // Examples:
@@ -67,17 +67,20 @@ function logBetweenStepper(min, max, step) {
 // conditional
 //
 
-function printFives(max) {
-    for (let i = 0; i < max; i++) {
-      if (i % 5 === 0) {
-        console.log(i);
-      }
-    }
-}
+// function printFives(max) {
+//    for (let i = 0; i < max; i += 5) {
+//      console.log(i);
+//    }
+// }
 
 function printFives(max) {
-  for (let i = 0; i < max; i += 5) {
-    console.log(i);
+  let i = 0;
+  while (i < max) {
+    if (i % 5 === 0) {
+      console.log(i);
+    }
+
+    i += 1;
   }
 }
 
@@ -97,9 +100,9 @@ function printFives(max) {
 //
 
 function printReverse(min, max) {
-    for (var i = max - 1; i > min; i--) {
-      console.log(i);
-    }
+  for (let i = max - 1; i > min; i--) {
+    console.log(i);
+  }
 }
 
 // Examples
@@ -123,19 +126,23 @@ function printReverse(min, max) {
 //
 
 function sumNums(max) { // 4
-  var sum = 0;
+  let i = 0;
+  let sum = i; // 10
 
-   for (var i = 0; i <= max; i++) {
-      sum += i;
-   }
+  while (i <= max) { // 5 <= 4
+    
+    sum += i; // 0 += 1 => 1 += 2 => 3
+    i += 1;
+  }
 
-   return sum;
+  
+  return sum; // 10  
 }
 
 // Examples:
 //
-// console.log(sumNums(4)); // => 10
-// console.log(sumNums(10)); // => 55
+// console.log(sumNums(4)); // => 10 => 1 + 2 + 3 + 4
+// console.log(sumNums(10));  // => 55
 // console.log(sumNums(365)); // => 66795
 
 //////////////////////////////////////
@@ -147,7 +154,12 @@ function sumNums(max) { // 4
 //
 
 function isFactorOf(number, factor) {
-   return (number % factor === 0);
+  // if (number % factor === 0) {
+  //   return true;
+  // }
+  // return false;
+
+  return number % factor === 0;
 }
 
 // Examples:
@@ -164,15 +176,17 @@ function isFactorOf(number, factor) {
 //
 
 function fizzBuzz(max) {
-   for (var i = 0; i < max; i++) {
-     if ((i % 3 === 0 && i % 5 !== 0) || (i % 3 !== 0 && i % 5 === 0)) {
-        console.log(i);
-     }
-   }
+  for (let i = 0; i < max; i += 1) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      continue;
+    } else if (i % 3 === 0 || i % 5 === 0) {
+      console.log(i);
+    }
+  }
 }
 
 // Examples:
-//
+// 20
 // fizzBuzz(20); // prints
 // 3
 // 5
@@ -188,28 +202,31 @@ function fizzBuzz(max) {
 // Define a function `isPrime(number)` that returns `true` if `number` is prime.
 // Otherwise, false. Assume `number` is a positive integer.
 //
+// first prime number is 2
+// prime number dont have any factors except 1 and itself
 
-function isPrime(number) {
-  if (number < 2) {
+function isPrime(number) { // 10
+  if (number < 2) { // first prime number is 2, anything less is not prime
     return false;
-  } 
+  }
 
-  for (var factor = 2; factor < number; factor++) {
-    if (number % factor === 0) {
-        return false;
+  // prime numbers dont have factors except 1 and itself
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false;
     }
   }
-  
+
   return true;
 }
 
 // Examples:
-//
-// console.log(isPrime(2)); // => true
-// console.log(isPrime(10)); // => false
-// console.log(isPrime(11)); // => true
-// console.log(isPrime(9)); // => false
-// console.log(isPrime(2017)); // => true
+// //
+console.log(isPrime(2)); // => true
+console.log(isPrime(10)); // => false
+console.log(isPrime(11)); // => true
+console.log(isPrime(9)); // => false
+console.log(isPrime(2017)); // => true
 
 //////////////////////////////////////////
 
@@ -253,7 +270,7 @@ function func3(num) { // 5
   return func2(x); //func2(55)
 }
 
-var result = func3(5);
+// var result = func3(5);
 // console.log(result); // What does this print out?
 
 var foo = function(name) { // "Anthony"
@@ -274,7 +291,7 @@ var bar = function() {
 }
 
 var result = bar();
-console.log(result); // What does this print out?
+// console.log(result); // What does this print out?
 
 
 // Debug The Programs

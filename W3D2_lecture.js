@@ -1,26 +1,51 @@
 // SCOPE
 
-// Always exists in the environment where we are writing out code
+// Always exists in the enviornment where we are writing our code
 // Deals with how we have access to certain things
-// var a = 'hello'; // global scope
 
-// function hello() {
-//     console.log(a); // function scoped
-// }
+function f1() { // function scope
+    let a = "hi"
+    console.log(a);
 
-// hello();
+}
 
-// var myName = 'global'; //func1
+// f1();
+// console.log(a);
 
-// function function1() {
-//     myName = 'func1';
-//     console.log(myName); // 
-// }
+// Global Scope => accessible any where in code
+// File/module Scope
+// Function Scope
+    // var 
+// Block Scope
+    // let & const
+    // const => constant
 
-// function1();
-// console.log(myName); // func1;
+["hello", "bye"]
 
-// Scope can always look outwards, but never inwards
+function printNums(array) {
+    
+
+    for (let i = 0; i < array.length; i++) { // i is scoped to this for loop
+        var str = array[i];
+        // console.log(i++)
+        // number++;
+    }
+
+
+    for (let i = 0; i < array.length; i++) {
+        let str = array[i];
+    }// scoped to this for loop
+    // console.log(number);
+
+
+    // console.log(number);
+    // console.log(i);
+}
+
+// printNums();
+
+// let myName = 'global'
+// console.log(myName);
 
 var myName = 'global';
 
@@ -30,179 +55,100 @@ function function1() {
 }
 
 function function2() {
-    // var myName = 'func2';
+    var myName = 'func2';
     console.log(myName);
 }
 
-// console.log(myName);   // ? global
-// function1();           // ? func1
-// function2();           // ? func2
-// console.log(myName);   // ? func2
+// console.log(myName);   // global
+// function1();           // func1
+// function2();           // func2
+// console.log(myName);   // global
 
-var myFavoriteFood = "pizza";
-
-function outer() {
-  var myFavoriteFood = "ramen";
-
-  function inner() {
-    console.log(myFavoriteFood);
-  }
-
-  inner(); // "ramen";
-}
-
-// inner(); 
-
-var num = 2017; // sets the variable to the global scope
-// console.log(num); // 2017
-
-// window = [0,1,2];
+// Inner Scopes have access to variables in Outer scopes
+// but outer scopes do not have access to inner scopes
+// (Scope can look out but not in)
 
 
-function func() {
-    var school = 'bootcamp prep';
-    // return school;
-}
 
-func();
-// console.log(func()); // bootcamp prep
+// JavaScript will keep searching outer scopes until the variable is found
+//  or it reaches the global scope
 
+// var a = 'hi'; // outer scope
 
-// let & const
+// function f2() {
+//     // var a = "bye";
+//     console.log(a); // inner scope
+// }
 
-// Global Scope (value/function that can be used anywhere in the entire program)
-// File/module scope (the value/function can only accessed within the file)
-// Function Scope (var)
-// Block Scope (value/function is only accessible within code block) {...}
-    // let & const
-
-function scopes() {
-    var myName = 'Jae';
-
-    for (var i = 0; i < myName.length; i++) {
-        var char = myName[i];
-        // let char = myName[i];
-        console.log(char);
-    }
-    console.log(char);
-    console.log(i);
-}
-
-// scopes();
+// f2();
 
 
-// const arr = []
-// arr.push(1);
-// console.log(arr);
-// // const arr = [];
-// arr = [1,2,34]
+// var myFavoriteFood = "pizza";
 
-// var bar = 5;
-// console.log("1: " + bar); //1: What will bar be on this line? // 5
+// function outer() {
+//     // var myFavoriteFood = "ramen";
 
-// function foo() {
-//     var bar = 10;
-//     console.log("3: " + bar); //3: What will bar be on this line? 10
-
-//     var innerFoo = function() {
-//         bar = 15;
+//     function inner() {
+//         console.log(myFavoriteFood);
 //     }
 
-//     console.log("4: " + bar); //4: What will bar be on this line? 10
+//     inner();
 // }
+
+// outer();
+
+// What happens when we don't use var/let/const?
+// let user = {name: "Richard"}
+// num = user.name; // bad! Polluting the global scope
+
+// console.log(num);
+
+// DANGEROUS b/c we can accidentally overwrite something in the global scope
+
+// naming collisions
+
+// var is used to scope variables to the current scope (function)
+
+var myVar = 'App Academy';
+
+function func() {
+    myVar = 'Bootcamp Prep';
+    console.log(myVar)
+}
+
+// console.log(myVar);   // ?
+// func();
+// console.log(myVar);   // ?
+
+
+var bar = 5;
+// console.log("1: " + bar); //1: What will bar be on this line? 5
+
+function foo() {
+    var bar = 10;
+    console.log("3: " + bar); //3: What will bar be on this line? 10
+
+    var innerFoo = function() {
+        bar = 15;
+    }
+    innerFoo();
+    console.log("4: " + bar); //4: What will bar be on this line? 10
+}
 
 // console.log("2: " + bar); //2: What will bar be on this line? 5
 // foo();
 // console.log("5: " + bar); //5: What will bar be on this line? 5
 
 
-// var bar = "dance";
+    //   var a = 5;
 
-// function foo() {
-//       bar = 10;
+    //   function inner(a) { //  arguments/parameters of functions are also variables
+    //     a = a + 10
+    //     console.log(a);
+    //   }
 
-//       var innerFoo = function() {
-//         var bar = 15;
-//       }
-
-//       console.log("2: " + bar); //2: What will bar be on this line? 10
-//     //   console.log(innerFoo()); // undefined
-//       innerFoo();
-//       console.log("3: " + bar); //3: What will bar be on this line? 10
-// }
-
-// console.log("1: " + bar); //1: What will bar be on this line? "dance"
-// foo();
-// console.log("4: " + bar); //4: What will bar be on this line? dance // 10 
+    //   console.log(a); // 5
+    //   inner(10) // 15
+    //   console.log(a); // 5
 
 
-
-var a = 5;
-
-function inner(a) { // parameters defined var functionally scoped
-    a = a + 10
-    return a;
-}
-
-// console.log(a); // 5
-// console.log(inner(10))
-// console.log(a); // 20
-
-
-
-
-/* 
-Write a function that takes in a string and replaces all L's, M's, O's with underscores
-
-Assume: all strings will be lowercase
-
-removeLMO('look at my code') => '___k at _y c_de'
-
-*/
-
-function removeLMO(str) {
-    var triggers = 'lmo';
-    var newStr = '';
-
-    for (let i = 0; i < str.length; i++) {
-        let char = str[i];
-        if (triggers.includes(char)) {
-            newStr += "_";
-        } else {
-            newStr += char;
-        }
-    }
-
-    return newStr;
-}
-
-// function removeLMO(str) {
-//     var words = str.split(" "); // ['look', 'at', ...]
-//     var replaced = [];
-
-//     for (var i = 0; i < words.length; i++) {
-//         var word = words[i]; // 'look'
-//         var newWord = wordLook(word);
-
-//         replaced.push(newWord);
-//     }
-
-//     return replaced.join(" ");
-// }
-
-// function wordLook(word) { //'look'
-//     var underscored = '';
-//     for (var i = 0; i < word.length; i++) {
-//         var char = word[i];
-
-//         if (char === 'l' || char === 'm' || char === 'o') {
-//             underscored += "_"
-//         } else {
-//             underscored += char;
-//         }
-//     }
-
-//     return underscored; // '___k'
-// }
-
-// console.log(removeLMO('look at my code'))

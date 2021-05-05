@@ -1,89 +1,103 @@
-// OBJECTS
-var arr = [1, 2, 3, 4]
-var firstEle = arr[0]
-var person = {
-    "name": "John", // key-value pair // keys must be strings
-    age: 99,
-    location: "San Antonio, Texas"
+// Objects -> complex data type
+
+// Object Syntax
+
+let arr = ['abc', 'bgh', 'c', 'd']; // ordered/sequenced list-like objects
+
+// Objects: sequence is not guaranteed
+// Key - Value Pairs
+// Keys: Strings
+// Values: Any data type in JS
+
+let car = {
+    0: "Toyota",
+    "model": "Camry",
+    "year": 2017,
+    "issues": ["oil change", "bad brakes", "no windshield fluid", "inspection due"],
+    "stolen": true,
+    color: "blue",
+    previousOwners: {name: "Kevin", age: 21, loc: 'NY'}
 };
 
-// Objects do not store data sequentially
+// console.log(car);
 
-// dot-notation & bracket-notation
-// Object.<propertyName>
-// console.log(person.name);
-// console.log(person["age"]);
+// let key = "issues"
+// console.log(car[key]);
+// console.log(car.years);
 
-// var key = "location";
-// console.log(person[key]);
+// Getting data from an object
+// Bracket Notation
+// <object>[<keyStr>]
 
-person.favoriteFoods = ["pizza", "sushi", "halal"];
-person["favoriteColor"] = "Green"
-var gender = "gender";
-person[gender] = "M"
+// Dot Notation => Must know specific key name
+// <object>.<keyName>
 
-// console.log(Object.keys(person)); // returns array of all object's keys
+let key = "gearbox";
+car[key] = "automatic"
+car["rust"] = true;
+car.gasTank = 60; 
+// console.log(car["previousOwners"]["age"]);
 
-// console.log(Object.values(person)); // return array of all object's values
-
-
-function getValue(obj, key) {
-    return obj[key];
+let issuesArr = car.issues; // ["oil change", "bad brakes", "no windshield fluid", "inspection due"]
+for (let i = 0; i < issuesArr.length; i++) {
+    // console.log(issuesArr[i]);
 }
 
-var user1 = {
-  email : "user@gmail.com",
-  address : "636 lyon street",
-  hobbies : ["biking", "exploring"],
-  friends : ["Chris", "Mel", "Hyeonu", "Tad"],
-  favoriteColor : "blue",
- 
+let boat = {
+    brand: "Sail",
+    0: "Camry",
+    "year": 2017,
+    "issues": ["oil change", "bad brakes", "no windshield fluid", "inspection due"],
+    "stolen": true,
+    color: "blue",
+    previousOwners: {name: "Kevin", age: 21, loc: 'NY'}
 };
 
-// console.log(getValue(user1, "hobbies")) // => ["biking", "exploring"]
-// console.log(getValue(user1, "favoriteColor")) // => "blue"
+// Iterate over an Object
+
+// for...in loop
+
+// for (let property in car) {
+//     let value = car[property];
+//     console.log(property + " " + value);
+// }
+
+for (let key in arr) {
+    let value = arr[key];
+
+    // console.log(value);
+}
 
 
-function printAllValues(obj, keys) {
-    var keys = Object.keys(obj); // array of obj's keys
 
-    for (var i = 0; i < keys.length; i++) {
-        var key = keys[i];
-        console.log(obj[key]);
+// Frequency Counters
+
+let str = "hello world, I'm learning JavaScript.";
+
+function countVowels(word) { // "hello everbody"
+    let count = {}; // {e: 3, o: 2}
+    let vowels = "aeiouAEIOU";
+
+    for (let i = 0; i < word.length; i++) {
+        let char = word[i]; // e
+
+        if (vowels.includes(char)) {
+            
+            if (count[char] === undefined) { // this key does not exist in the obj
+                count[char] = 1; // setting a new k,v pair of the current vowel to 1
+            } else {
+                count[char] += 1;
+            }
+
+        }
+    
+
     }
+
+    return count; // {e: 3, o: 2}
 }
 
-var user1 = {
-  email : "user@gmail.com",
-  address : "636 lyon street",
-  hobbies : ["biking", "exploring"],
-  isOnline : true,
-  securityQuestions : {
-    grandfathersName : "Art",
-    favoriteColor : "blue"
-  }
-};
-
-
-// console.log(printAllValues(user1));
-
-// for..in block
-
-for (var property in user1) {
-    // console.log(property + " : " + user1[property])
-}
-
-
-
-// console.log(user1["securityQuestions"]["grandfathersName"])
-
-var myDog = {
-    name: "Fido",
-    myKey: "???"
-};
-
-var myKey = "name";
-// console.log(myDog[myKey]);   // Fido
+// console.log(countVowels(str))
 
 var user = {
     email : "name@mail.com",
@@ -91,99 +105,53 @@ var user = {
 }
 
 function printGreetingToFriends(user) {
-    var friendsArr = user.friends; // ["Tad", "Mel"]
-    for (var i = 0; i < user.friends.length; i++) {
-        var friend = friendsArr[i];
-        console.log("Hello, " + friend);
+    let friendsArr = user.friends;
+    for (let i = 0; i < friendsArr.length; i++) {
+        let name = friendsArr[i];
+        console.log("hello, " + name);
     }
 }
 
 // printGreetingToFriends(user);
-    // "hello, Tad"
-    // "hello, Mel"
-    // "hello, Chris"
-    // "hello, Kate"
-
+// "hello, Tad"
+// "hello, Mel"
+// "hello, Chris"
+// "hello, Kate"
 
 var allUsers = {
-        user1 : {
-          name: "Hayden",
-          friends: ["Samantha", "Miles", "Jacob"],
-        },
-        user2 : {
-          name: "Tad",
-          friends: ["Shareen", "Anthony"],
-        }
-}
-
-function printUserNames(obj) {
-    for (var property in obj) {
-        var user = obj[property];
-        console.log(user.name)
+    user1 : {
+      name: "Hayden",
+      friends: ["Samantha", "Miles", "Jacob"],
+    },
+    user2 : {
+      name: "Tad",
+      friends: ["Shareen", "Anthony"],
     }
 }
+  
+  
+  
+function printAllTheFriendNames(allUsers) {
+    
+    for (let key in allUsers) { //key = user2
+        let user = allUsers[key]; // {name: 'Tad', friends: ["Shareen", "Anthony"]}
+        let friendsList = user.friends; //  ["Shareen", "Anthony"]
 
-function printUserFriends(obj) { // "Hayden is friends with Samantha"
-    for (var property in obj) {
-        var user = obj[property];
-        var userFriends = user.friends; // array
-
-        for (var i = 0; i < userFriends.length; i++) {
-            var friend = userFriends[i];
-            console.log(user.name + " is friends with " + friend);
+        for (let i = 0; i < friendsList.length; i++) {
+            let friend = friendsList[i];
+            console.log(friend);
         }
     }
 }
 
-// printUserFriends(allUsers);
+// printAllTheFriendNames(allUsers);
+  // Samantha"
+  // Miles"
+  // Jacob"
+  // Shareen"
+  // Anthony"
 
-// Counter/Frequency Object
-
-var command = "go dog go";
-
-function countChars(string) {
-    var count = {};
-
-    for (var i = 0; i < string.length; i++) {
-        var char = string[i]; // "g"
-        if (count[char] === undefined) {
-            count[char] = 1;
-        } else {
-            count[char] += 1;
-        }
-        
-    }
-
-    return mostCommonChar(count);
-}
-
-function mostCommonChar(obj) {
-    var maxCount = 0;
-    var maxStr = "";
-
-    for (var char in obj) { //char is the key in the object
-        var num = obj[char];
-
-        if (num >= maxCount) {
-            maxCount = num;
-            maxStr = char;
-        }
-    }
-
-    return maxStr;
-}
-
-// console.log(countChars(command));
-
-var iphone = {
-    color: "Black",
-    price: 100,
-    generation: 5
-}
-
-// console.log(iphone.owner)
-
-var votingResults = [
+  var votingResults = [
     "Janice",
     "Henry", 
     "Janice",
@@ -200,37 +168,30 @@ var votingResults = [
     "Henry",
   ];
 
-  function countVotes(results) {
-    // code here...
-    var count = {};
+function countVotes(results) {
+    let tally = {};
 
-    for (var i = 0; i < results.length; i++) {
-        var vote = results[i]; // "Janice"
+    for (let i = 0; i < results.length; i++) {
 
-        if (count[vote] === undefined) {
-            count[vote] = 1;
+        if (tally[results[i]] === undefined) {
+            tally[results[i]] = 1;
         } else {
-            count[vote] += 1;
+            tally[results[i]]++;
         }
     }
 
-    return winner(count);
-  };
+    return tally;
+};
 
-  function winner(obj) {
-      var maxCount = 0;
-      var winner = "";
-
-      for (var name in obj) {
-          var count = obj[name];
-          if (count > maxCount) {
-              maxCount = count;
-              winner = name;
-          }
-      }
-
-      return "The winner is " + winner;
-  }
-
-  console.log(countVotes(votingResults)); 
+console.log(countVotes(votingResults)); 
   // => { Henry: 6, Janice: 8 }
+
+
+  
+function schoolPrez(votes) {
+      
+}
+
+let schoolVotes = [{ Henry: 6, Janice: 8}, { Adam: 10, Jenny: 3}, { Tyson: 16, Lisa: 18}];
+console.log(schoolPrez(schoolVotes)) // => Lisa
+

@@ -19,10 +19,10 @@
 // }
 
 function isOdd(num) {
-  if (num % 2 === 0) {
-    return false;
-  } else {
+  if (num % 2 !== 0) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -62,16 +62,15 @@ function plusFive(num) {
 //
 
 // function threeOrSeven(num) {
-//   return (num % 7 === 0 || num % 3 === 0);
+//   if (num % 3 === 0 || num % 7 === 0) {
+//     return true;
+//   }   
+//   return false;
 // }
 
-function threeOrSeven(num) {
-  if (num % 7 === 0 || num % 3 === 0) {
-    return true;
-  }
-
-  return false;
-}
+// function threeOrSeven(num) {
+//   return (num % 3 === 0 || num % 7 === 0);
+// }
 
 // console.log(threeOrSeven(3))
 // console.log(threeOrSeven(42))
@@ -84,14 +83,13 @@ function threeOrSeven(num) {
 //
 // Examples:
 
-//
+
 function hello(str) {
   console.log("Hello, " + str);
 }
 
 // hello("child");    // prints "Hello, child"
 // hello("Anthony");  // prints "Hello, Anthony"
-
 
 
 
@@ -103,8 +101,9 @@ function hello(str) {
 // yell("I want to go to the store"); // => "I WANT TO GO TO THE STORE!!!"
 // yell("Time to program"); // => "TIME TO PROGRAM!!!"
 //
+
 function yell(string) {
-  return string.toUpperCase() + '!!!';
+  return string.toUpperCase() + "!!!";
 }
 
 // console.log(yell("I want to go to the store"))
@@ -135,26 +134,26 @@ function whisper(string) {
 // isSubstring("The cat went to the store", "he cat went"); // => true
 // isSubstring("Time to program", "time"); // => true
 // isSubstring("Jump for joy", "joys"); // => false
-//
-// function isSubstring(searchString, subString) {
-//   var lowerSearch = searchString.toLowerCase();
-//   var lowerString = subString.toLowerCase();
-//   return lowerSearch.indexOf(lowerString) > -1;
-// }
 
 function isSubstring(searchString, subString) {
-  var lowerSearch = searchString.toLowerCase(); // "jump for joy"
-  var lowerString = subString.toLowerCase(); // 'joys'
-
-  if (lowerSearch.includes(lowerString)) { // 'jump for joy'.indexOf('joys')
-    return true;
-  }
-
-  return false;
+  let search = searchString.toLowerCase();
+  let sub = subString.toLowerCase();
+  return search.search(sub);
 }
-// console.log(isSubstring("The cat went to the store", "he cat went"))
-// console.log(isSubstring("Time to program", "time"))
-// console.log(isSubstring("Jump for joy", "joys"))
+
+// function isSubstring(searchString, subString) {
+//   let search = searchString.toLowerCase();
+//   let sub = subString.toLowerCase();
+
+//   if (search.includes(sub)) {
+//     return true;
+//   }
+//   return false;
+// }
+
+console.log(isSubstring("The cat went to the store", "he cat went"))
+console.log(isSubstring("Time to program", "time"))
+console.log(isSubstring("Jump for joy", "joys"))
 
 // echo
 // Write a function `echo` that takes in a string and returns that string "echo-ized".
@@ -183,11 +182,12 @@ function echo(string) {
 // isEven(5); // => false
 
 // function isEven(num) {
-//   return !isOdd(num);
+//   return isOdd(num) === false;
+//   // return num % 2 === 0;
 // }
 
 function isEven(num) {
-  if (num % 2 === 0) {
+  if (!isOdd(num)) {
     return true;
   }
   return false;
@@ -209,56 +209,30 @@ function isEven(num) {
 // averageOfFour(1, 2, 3, 4); // => 2.5
 
 function averageOfFour(num1, num2, num3, num4) {
-  return (num1 + num2 + num3 + num4) / 4;
+  let sum = num1 + num2 + num3 + num4;
+  return sum / 4;
 }
 
-console.log(averageOfFour(10, 10, 15, 5))
-console.log(averageOfFour(3, 10, 11, 4)); // => 7
-console.log(averageOfFour(1, 2, 3, 4)); // => 2.5
+// console.log(averageOfFour(10, 10, 15, 5))
+// console.log(averageOfFour(3, 10, 11, 4)); // => 
+// console.log(averageOfFour(1, 2, 3, 4)); // => 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Function Muscle Memory
-// Practice typing the syntax for functions. Type each snippet 10 times. 
-// Focus on using proper style and indentation. 
-// Be sure to test your code by running it after each repetition. 
-// You'll be surprised and also annoyed at what details you missed! Learn from those typos.
-
-function sayHello(name) {
-  var msg = 'Hello, ' + name + '. How are you?';
-  return msg;
-}
-
-// console.log(sayHello('Sam')); // feel free to change the string being passed
-
-function checkNumber(num) {
-  if (num > 0) {
-    return 'positive';
-  } else if (num < 0) {
-    return 'negative';
-  } else {
-    return 'zero';
-  }
-}
-
-// console.log(checkNumber(5)); // feel free to change the number being passed
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 // Thinking Problems
 // These next few problems won't require you to write code, but it will help your understandng of JavaScript.
 
 // Order of Operations
 // Evaluate each expression. Check your answer in the Node REPL.
-
+// Parenthesis    Exponent   Modulo/Mult/Div    Add/Subtract
 // 1 + 1 * 5 // 6
 
 // (1 + 1) * 5 // 10
 
 // 1 + 2 - 5 / 6 - 1 // 1.1666666666666665
 
-// 5 * 5 % 13 // 
+// 5 * 5 % 13 // 12
+
+// 10 % 3 // => 1
 
 // 5/(-1 * (5 - (-10))) // -0.3333333333333333
 
@@ -276,7 +250,7 @@ function checkNumber(num) {
 // Truthy or Falsey
 // Predict whether these expressions evaluate to true or false. Check your work in the REPL.
 
-true || false && true // true
-true && (false || true) // true
-(true || false) && (false || false) // false  
-(true || false) || (false || false) // true
+// true || false && true // true
+// true && (false || true) // true
+// (true || false) && (false || false) // false
+// (true || false) || (false || false) // true

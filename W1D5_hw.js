@@ -3,9 +3,9 @@
 // inside of the `array`, false otherwise.
 //
 // HINT: use indexOf
-function isInside(array,ele )  {
-    return array.indexOf(ele) > -1;
 
+function isInside(array, ele)  {
+   
 }
 //
 // console.log(isInside(['chase', 'phi', 'eliot'], 'eliot')); // => true
@@ -18,18 +18,11 @@ function isInside(array,ele )  {
 //
 
 function reverseStr(str) {
-    var revStr = "";
 
-    for(var i = str.length - 1; i >= 0; i--) {
-        var char = str[i];
-        revStr += char;
-    }
-
-    return revStr;
 }
 
 // Examples:
-//
+// //
 // console.log(reverseStr('bootcamp')); //=> 'pmactoob'
 // console.log(reverseStr('App Academy')); //=> 'ymedacA ppA'
 
@@ -38,15 +31,7 @@ function reverseStr(str) {
 // to max (inclusive) that are divisible by 7.
 //
 function luckySevens(max) {
-    var sevens = [];
 
-    for (var i = 1; i <= max; i++) {
-        if (i % 7 === 0) {
-            sevens.push(i);
-        }
-    }
-
-    return sevens;
 }
 // Examples:
 //
@@ -59,13 +44,7 @@ function luckySevens(max) {
 //
 
 function copyMachine(element, num) {
-    var output = [];
 
-    for (var i = 0; i < num; i++) {
-        output.push(element);
-    }
-
-    return output;
 }
 // Examples:
 //
@@ -80,14 +59,7 @@ function copyMachine(element, num) {
 //
 
 function everyOtherWord(sentence) {
-    var words = sentence.split(" ");
-    var everyOther = [];
-
-    for (var i = 0; i < words.length; i += 2) {
-        everyOther.push(words[i]);
-    }
-
-    return everyOther;
+    
 }
 // Examples:
 //
@@ -100,32 +72,18 @@ function everyOtherWord(sentence) {
 // point behind it, except words that already have punctuation. Punctuation
 // marks are ". , ! ? ; :"
 //
-function wordYeller(sentence) {
-    var punc = ". , ! ? ; :";
-    var words = sentence.split(" ");
-    var result = [];
-
-    for (var i = 0; i < words.length; i++) {
-        var word = words[i];
-        var last = word[word.length - 1];
-
-        if (!punc.includes(last)) {
-            var newWord = word + "!";
-            result.push(newWord);
-        } else {
-            result.push(word);
-        }
-    }
-
-    return result.join(" ");
+function wordYeller(sentence) { // "Stop it now! Please, wont you stop?"
+    
 }
 // Example 1
 var sent = "Stop it now! Please, wont you stop?";
 var yelledWords = wordYeller(sent);
+// console.log(yelledWords);
 // console.log(yelledWords === "Stop! it! now! Please, wont! you! stop?"); // => true
-//
-// Example 2
-var words = "Go to the store and grab the following: milk, bread, run, and cake";
+// //
+// // Example 2
+// var words = "Go to the store and grab the following: milk, bread, run, and cake";
+// console.log(wordYeller(words))
 // console.log(wordYeller(words) === "Go! to! the! store! and! grab! the! following: milk, bread, run, and! cake!"); // => true
 
 // arraySubstring
@@ -136,19 +94,7 @@ var words = "Go to the store and grab the following: milk, bread, run, and cake"
 //
 
 function arraySubstring(words, str) {
-    var bools = [];
-
-    for (var i = 0 ; i < words.length; i++) {
-        var word = words[i];
-        if (word.indexOf(str) > -1) {
-            bools.push(true);
-        } else {
-            bools.push(false);
-        }
-    }
-
-
-    return bools;
+  
 }
 // Examples:
 //
@@ -164,24 +110,12 @@ function arraySubstring(words, str) {
 //
 
 function evenCaps(sentence) {
-    var newStr = "";
-
-    for (var i = 0; i < sentence.length; i++) {
-        var char = sentence[i];
-
-        if (i % 2 === 0) {
-            newStr += char.toUpperCase();
-        } else {
-            newStr += char.toLowerCase();
-        }
-    }
-
-    return newStr;
+ 
 }
 
 // Examples:
 //
-console.log(evenCaps("Tom got a small piece of pie"))
-// => "ToM GoT A SmAlL PiEcE Of pIe"
-console.log(evenCaps("the book is in front of the table"))
-// => "ThE BoOk iS In fRoNt oF ThE TaBlE"
+// console.log(evenCaps("Tom got a small piece of pie"))
+// // => "ToM GoT A SmAlL PiEcE Of pIe"
+// console.log(evenCaps("the book is in front of the table"))
+// // => "ThE BoOk iS In fRoNt oF ThE TaBlE"

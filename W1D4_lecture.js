@@ -1,240 +1,186 @@
-// ARRAYS
+// console.log(str1[str1.length - 1]);
+let str1 = "abcdef"; 
 
-// An array is a list-like object that is mutable;
+// String is a primitive Data type
+//  Primitive data types are immutable/unchangeable
+
+
+// ARRAYS : complex-data type
+// An array is a list-like object that is mutable/changeable
 // An array is made up of elements
-    // Elements can be anything from a primitive data type to other complex data types
-    // Elements are stored sequentially
-        // They can be accessed via an index
-        
-        // console.log(arr[0])
-        // console.log(arr[3])
-        // console.log(arr[5])
-        // console.log(arr[6])
-        // console.log(arr[arr.length - 1])
-        
-        // str[0] = 'x';
-        // console.log(str)
-        
-        // arr[0] = 'hello';
-        
-        // console.log(arr[0]);
-        // console.log(arr);
-        
-        
-        // METHODS:
-        
-        // console.log(arr.indexOf('hello'));
-        
-        // var str = 'hello';
-        // console.log(str.length); // 5
-        var ids = [1, 2, 'hello', 'howdy', 'hey']
-        // console.log(ids.length); // 5
-        // console.log(ids.indexOf('hello'));
-        
-        
-        var arr = [10, 1, 2, 13, 4, 'string', ['a', 'b', 'c'], 5];
-        //          0  1  2  3  4     5            6          7 
-// console.log(arr.slice(1));
-// slice returns a slice of the original data type from the first index inputted inclusively
-// to second index inputted exclusively;
-// to make a shallow copy of an array;
+// Element can be anything from primitive data type to complex data type 
 
 
+let arr = [45, 23, 13, 'hello', [1, 2, 3], true];
+// index    0   1   2     3         4        5
+// length   1   2   3     4         5        6
 
-var copyArr = arr.slice(3); // [10, 1, 2, 13, 4, 'string', ['a', 'b', 'c'], 5];
-// copyArr[0] = 'goodbye';
-// copyArr[3] = 'altoids';
+// console.log(arr[3]);
+// console.log(arr[0]);
+// console.log(arr[arr.length - 1]);
 
+// str1[0] = "b";
+// console.log(str1) // ? 
+
+// arr[0] = "bena";
+// console.log(arr) // ["bena", 23, 13, 'hello', [1, 2, 3], true] 
+
+// arr[arr.length - 1] = false;
 // console.log(arr);
-// console.log(copyArr);
 
-// .push() : adds a new element to the end of the array;
-copyArr.push('Alfredo');
-// console.log(copyArr);
+// arr = [3, 4, 5];
+// console.log(arr);
 
-var str1 = '';
-str1 += 'x';
-// console.log(str1) // 'x';
+// METHODS:
 
-// .pop() : removes the last element from an array and returns it;
-// console.log(" ");
-var lastEle = copyArr.pop(); // 'Alfredo'
-// console.log(" ");
-// console.log(copyArr);
+// console.log(arr.indexOf(23));
+// console.log(arr.length);
 
-// .unshift() : adds a new element to the front of the array;
+// console.log(arr.slice())
 
-copyArr.unshift('Z');
-// console.log(copyArr);
 
-// .shift()
+// .push(<element>)
+// adds new element to end of the array
+// wordsArr.push("pizza");
+// console.log(wordsArr);
 
-// console.log(copyArr.shift());
-// console.log(copyArr);
-// console.log(" ");
+// .pop()
+// removes and returns last element of the array
+// let removed = wordsArr.pop();
+// console.log(wordsArr.pop());
+// console.log(removed);
+// console.log(wordsArr);
 
-// .splice(<position>, <number of elements>) 
-// removes elements from a index position and returns an array of removed elements
-// console.log(copyArr.splice(copyArr.length - 1, 1));
-// console.log(" ");
-// console.log(copyArr)
+// .unshift(<element>) 
+// adds new element to front of the array
 
-// .concat() join or merge two or more arrays;
+// wordsArr.unshift("waterbottle");
+// console.log(wordsArr);
 
-var secArr = ['Denny', 'Kegan'];
-// copyArr.push(secArr);
-var mergedArr = copyArr.concat(secArr);
-// console.log(copyArr);
-// console.log(mergedArr);
+// .shift() 
+// removes and returns first element of the array
+// wordsArr.shift();
+// console.log(wordsArr);
+
+
+// let wordsArr = ["word", "hello", "goodbye", "hamburger"];
+
+// .splice(<indexPosition>, <numberOfElements>);
+//  removes elements from a index position and returns an array of removed elements
+
+// console.log(wordsArr.splice(1, 2)) // => ["hello", "goodbye"]
+// console.log(wordsArr);
+
+// .concat(<array>)
+// merges/joins two or more arrays together and returns joined array
+// doesnt change the original array
+
+// let numsArr = [2, 3, 4, 5, 6];
+
+// let combinedArr = wordsArr.concat(numsArr);
+// console.log(combinedArr);
+// console.log(wordsArr);
 
 
 // Looping Thru an Array
 
-// print every individual element;
+let wordsArr = ["word", "hello", "goodbye", "hamburger"];
 
-var eleArr = [1, 2, 3]
+// for (let i = 0; i < wordsArr.length; i++) {
+//     let word = wordsArr[i];
+//     console.log(word);
+// }
 
-//length => 3
-// index 0...2
-
-for (var i = 0; i < eleArr.length; i += 1) { // 0
-    // console.log(eleArr[i]); // 1
-}
-
-
-
-
-var score1 = 10;
-var score2 = 20;
-var classScores = [1, 2, 23, 10, 15, 17]
-
-// Type Conversion
-
-// .split(); used on a String
-// based on input, will divide string into an array of element
-
-var str = 'welcome to bootcamp'
-var wordsArr = str.split(" ");
-// console.log(wordsArr);
-
-// .join(); joins an array and its elements on whatever is inputted and returns a string
-var joinedStr = wordsArr.join("_");
-// console.log(joinedStr);
-
-function replaceVowelsWithUnderscores(string) {
-    var vowels = 'aeiou';
-    var chars = string.split(""); // [ 'h','e','l',l','o', ",", " ", ...]
-    var result = []; // ['h', '_'];
-
-    for (var i = 0; i < chars.length; i++) { // 1
-        var char = chars[i]; // 'e'
-
-        if (vowels.includes(char)) {
-            result.push("_");
-        } else {
-            result.push(char);
-        }
-    }
-    var newStr = result.join("");
-    return newStr;
-}
-
-var input = 'hello, i love coding';
-
-console.log(replaceVowelsWithUnderscores(input))// 'h_ll_, _ l_v_...'
+// let i = 0;
+// while (i < wordsArr.length) {
+//     let word = wordsArr[i];
+//     console.log(word);
+//     i++;
+// }
 
 
+// TYPE CONVERSION
 
-// the function removeVowels accepts a string and returns a new string with all vowels removed;
+// .split(<string>) String => Array
+// splits string into an array on the given input
 
-function removeVowels(string) {
-    var vowels = 'aeiou'; // ['a,e,i,o,u]
-    var newArr = [];
+// let greeting = "Hello Bena, We are talking about arrays."
+// let splitGreet = greeting.split(" ");
+// console.log(splitGreet);
 
-    for (var i = 0; i < string.length; i++) {
-        if (!vowels.includes(string[i])) { //h
-            newArr.push(string[i]);
-        }
+// // .join(<string>)  Array => String
+// // joins array into a string on the given input
+
+// let underScored = splitGreet.join("123");
+// console.log(underScored);
+
+
+// Given an array of lowercase words, return a new array uppercase words
+
+function allCaps(wordsArr) {
+    let caps = [];
+
+    for (let i = 0; i < wordsArr.length; i++) { // i is each index place of the wordsArr
+        let word = wordsArr[i]; // we grab each individual element
+        let capWord = word.toUpperCase();
+        caps.push(capWord);
     }
 
-    return newArr.join('');
+    return caps;
 }
 
-// console.log(removeVowels("hello")); // "hll"
-// console.log(removeVowels("welcome to bootcamp")); // "wlcm t btcmp";
+// console.log(allCaps(["hello", "goodbye", "see you"])) // ["HELLO, "GOODBYE", 'SEE YOU"]
+// console.log(allCaps(["spaghetti", "meatball"])) // ["SPAGHETTI", "MEATBALL"];
 
+// let str2 = "Loop over me!"
 
-function changeToEven(arr) {
-    var newArr = [];
-    
-    for (var i = 0; i < arr.length; i++) {
-        var num = arr[i];
-        
-        if (num % 2 === 0) {
-            newArr.push('even');
-        } else {
-            newArr.push(num);
-        }
-    }
+// let arr2 = ["hello", "goodbye", "see you"]
+// let num = str2.length;
 
-    return newArr;
-}
-var input1 = [1, 2, 3, 4, 5, 6, 7, 8];
-// console.log(changeToEven(input1)) //[1, "even", 3, "even", 5, "even", 7, "even"];
+// for (let i = 0; i < arr2.length; i++) {
+//     let ele = arr2[i];
+//     console.log(ele)
+// }
 
 
 
-function largerThan10 (nums) {
-    var arr = [];
+// Larger than 10
 
-    for (var i = 0; i < nums.length; i++) {
-        if (nums[i] > 10) {
-            arr.push(nums[i]);
+// Given an Array of Numbers, return a new Array of all numbers greater than 10
+
+function greaterThanTen(array) {
+    let arr = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let ele = array[i];
+        if (ele > 10) {
+            arr.push(ele);
         }
     }
 
     return arr;
 }
 
-var numsArr = [25, 1, -4, 5, 10, 30] // 
+// console.log(greaterThanTen([1, 2, 4, 10, 23, 45, 5, 18])) // => [23, 45, 18]
 
-// console.log(largerThan10(numsArr)) // [ 25, 30];
+// console.log(greaterThanTen([100, 18, 5, 6, 10])) // => [100, 18]
 
+function removeVowels(word) {
+    let vowels = "aeiou";
+    let str = "";
 
-/*
-
-Given the string we want to capitilize each word
-
-Split the string into array of words
-so that we can look at each individual word //.split(" ")
-
-capitalize each word
-cap the first letter and add the rest lowercase;
-
-store the capWord into a new Array
-
-join the array with capWords to return a newString
-
-
-*/
-
-function capitalizeEachWord(sentence) {
-    var wordsArr = sentence.split(" "); // ['whenever', 'there', ...];
-    var newSent = []; // ["Whenever", "There", "Are"...]
-
-    for (var i = 0; i < wordsArr.length; i++) {
-        var word = wordsArr[i]; // 'whenever'
-        var firstLetter = word[0].toUpperCase(); // 'W'
-        var tail = word.slice(1).toLowerCase(); // 'henever'
-        var newWord = firstLetter + tail; // 'Whenever
-
-        newSent.push(newWord);
-
-        // newSent.push(wordsArr[i][0].toUpperCase() + wordsArr[i].slice(1).toLowerCase());
+    for (let i = 0; i < word.length; i++) {
+        let char = word[i];
+        if (vowels.indexOf(char) === -1) {
+            str += char;
+        }
     }
 
-    return newSent.join(" ");
+    return str;
 }
 
-var str = 'whenever there are people we go';
-// console.log(capitalizeEachWord(str));// => 'Whenever There Are People We Go';
+// console.log(removeVowels("apple")) // => ppl
+
+// console.log(removeVowels("bootcamp")) // => btcmp
+
+[1, 2, 4, 10, 23, 45, 5, 18]

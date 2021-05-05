@@ -3,54 +3,59 @@
 // Array vs. Objects
 
 // Arrays
-// There are ordered/sequenced
-// Iteration or sorting
+// They are ordered/sequenced
+// Iteration & Sorting
 
-let responses = [1, 2, 5, 5, 3, 4];
+let nums = [0, 2, 3, 4, 1]
+
+console.log(nums.sort((a,b) => a-b ));
+
+let obj = {
+    sauce: 'ketchup'
+}
 
 // Objects are better for complex data
 
-let user = {
-    username: "AlfredoNotAntonio",
-    dob: '12/12/12',
-    friends: [{username: 'Denny Srun'}, 'Z', 'Jacob']
-};
+let user1 = ["bAlsi123", 'password123', 'san francisco'];
 
-// how could we represent this data?
-// what are the advantages and tradeoffs
-
-    Ford, Mustang
-    Honda, Civic
-    Mazda, 626
-    Chevy, Tahoe
-    Dodge, Charger
-    Kia, Rio
-let cars =  [car1, 'etc'];
-
-let car1 = {
-    company: 'Ford',
-    model: 'Mustang',
-    condition: "used"
+let user2 = {
+    username: "bAlsi123",
+    password: 'password',
+    friends: [{username: "richardPancakes", location:"NY"}, ]
 }
 
-let car2 = {
+// Ford, Mustang
+// Honda, Civic
+// Mazda, 626
+// Chevy, Tahoe
+// Dodge, Charger
+// Kia, Rio
+
+let racecar = {
     company: 'Ford',
     model: 'Mustang',
-    condition: "new"
+    year: 1990
 }
 
-getCount(myArray);
-// => [["a", 3], ["b", 2], ["c", 1], ["d", 1]]
-
-[array[0], array[1]] = [array[1], array[0]]
 
 
-getCount(myArray);
-// => { a : 3, b : 2, c : 1, d : 1 }
+function maxValue(numbers) { // [1,2,3]
+    var largest = null; // 1
+  
+    for (var i = 0; i < numbers.length; i += 1) {
+      var num = numbers[i]; // 1
+  
+      if (largest === null || num > largest) {
+        largest = num;
+      }
+    }
+  
+    return largest; // 3
+}
 
-
-let user = {
-    name: 'Jacob Prall',
-    location: 'CA',
-    favColor: 'Purple'
+console.log(maxValue([1,2,3]))
+let i = 0;
+while (true) {
+    console.log(i)
+    // break;
 }

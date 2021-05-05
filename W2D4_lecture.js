@@ -1,122 +1,175 @@
-// Strings vs. Arrays 
-// Strings are immutable
-// Arrays are mutable
+// Strings vs. Arrays
 
-var str = "hello";
-str[1] = "x";
-// console.log(str);
+// Strings are primitive data type
+// Strings are not mutable
 
-var arr = ["h", "e", "l", "l", "o"];
-arr[1] = "x";
+let str = "";
+str += "a";
+// console.log(str); // a
+
+let str2 = "hello";
+str2[0] = 'x';
+// console.log(str2);
+
+// Arrays are complex data types and are mutable
+// Arrays can be mutated in place
+
+let arr = [ 'h', 'e', 'l', 'l', 'o'];
+arr[0] = 'x';
 // console.log(arr);
 
-function xVowels(string) {
-    var vowels = "aeiou";
-    var chars = string.split("");
+function xVowels(str) {
+    let vowels = "aeiou";
+    let arr = str.split("");
 
-    for (var i = 0; i < chars.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
+        let char = arr[i];
 
-        if (vowels.includes(chars[i])) {
-            chars[i] = "x";
+        if (vowels.indexOf(char) > -1) {
+            arr[i] = 'x';
         }
     }
 
-    return chars.join("");
+    return arr.join("");
 }
 
 // console.log(xVowels("banana")) // => "bxnxnx"
 
-// string.split("") // converts a string into and array
-// .join() // converts array into a string
+/* 
+convert number to a string
+split up the number to get each indiv digit place
+add 1 to each
+then join back up
+*/
 
-String()
-// console.log(true)
+console.log("2" + 1);
+console.log(25);
 
-// console.log(Number("34a"));
+function addOneToEach(num) {
+    let numString = String(num); 
+    let numArr = numString.split(""); // ["2", "5"]
 
-// console.log(parseInt("34a"))
+    for (let i = 0; i < numArr.length; i++) {
+        let numChar = numArr[i];
+        let num = Number(numChar);
+        let newNum = num + 1;
 
-// console.log(typeof {id:["435"]})
-
-// console.log(Array.isArray([1, 2, 3])); //true or false
-
-
-// take in a number and return a new number with each digit incremented by 1
-function addOneToEach(num) { // 25
-    var numStr = String(num); // "25"
-    var newStr = ""; // 
-
-    for (var i = 0; i < numStr.length; i++) {
-        var digitStr = numStr[i]; // "2"
-        newStr += Number(digitStr) + 1; // "" += 2 + 1
+        numArr[i] = newNum;
     }
 
-    return parseInt(newStr); // 36
+    return Number(numArr.join(""));
 }
 
 // console.log(addOneToEach(25)); // => 36
 // console.log(addOneToEach(183)); // => 294
 // console.log(addOneToEach(5248)); // => 6359
 
-function numsToDash(str) {
-    var nums = [0,1,2,3,4,5,6,7,8,9];
-    // var nums = "0123456789"
-    var newStr = ""; 
-    
-    for (var i = 0; i < str.length; i++) {
-        var char = str[i];
-        var numifiedChar = Number(char);
+// Bad style:
+// function skip5(){
+//     for (var i = 1; i < 10;i += 1){
+//     if (i === 5) {
+//       continue;}
+//     console.log(i);
+//     }}
+// // Good style:
 
-        if (nums.indexOf(numifiedChar) > -1) {
-            newStr += "-";
-        } else {
-            newStr += char;
-        }
+// function skip5() {
+
+//     for ( var i = 1; i < 10; i += 1 ) {
+
+//         if (i === 5) {
+//             i === 4;
+//             continue;
+
+//         }
+
+//         // if (i === 6) return "x";
+//         // else if (i === 4) return 'y';
+//         // else return 'z';
+//         console.log(i);
+//     }
+
+//     for (let key in obj) {
+//         if ("x") {
+
+//         } else if ('y') {
+
+//         } else {
+
+//         }
+//     }
+
+//     return;
+// }
+
+//  // Bad style:
+//  var num1=3;
+//  var num2 =5;
+//  if (num1+num2=== 8) {
+//    console.log("the sum is 8");
+//  }
+
+//  // Good style:
+//  var num1 = 3;
+//  var num2 = 5;
+//  if (num1 + num2 === 8) {
+//    console.log("the sum is 8");
+//  }
+
+//  myNum++;
+//  myNum += 1;
+
+// Debugging
+
+// Types of Erros:
+
+// Syntax Error => Incorrect use of predefined syntax
+    //  Missing bracket, parenthesis, etc.
+
+// function hello() {
+//     for (let i = 0; i < 5; i++) {
+
+//     }
+// }
+
+
+// Reference Error => represents an error when an operation cant be performed
+
+// console.log(dog);
+// hello();
+
+// Type Error  => truy to use something in a way that it's not supposed to be
+
+// var arr5 = [1, 2, 3, 4, 5];
+// arr5();
+
+function findNumber(array, target) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === target) {
+        return true;
+      }
     }
+    return false;
+  }
 
-    return newStr;
-}
-// console.log(Number("a"))
-// console.log(numsToDash('ab3dk9h')); // => 'ab-dk-h'
-// console.log(numsToDash('r576tyi')); // => 'r---tyi'
-
-Math.abs(-5 + 2) // Absolute Value
-var speeds = [1,5,-11,0,1,2]
-
-// console.log(Math.floor(7.0 / 2)) // Return the largest rounded down
-
-// console.log(Math.ceil(7.0 / 2)) // rounding up
-
-// console.log(Math.round(6.9 / 2)) // traditional rounding
-
-// console.log(Math.max(...[1, 2, 3, 9, 4], 6, 7, 12)) // returns the greatest number 
-// ... spread operator:  
-
-// console.log(Math.min(...[1, 2, 3, 9, 4], 6, 7, 12, -18))
+// console.log(findNumber([1, 2, 3, 4, 5], 4));
 
 
-// console.log(Math.ceil(Math.sqrt(47)))
 
-// console.log(Math.sign(0))
 
-// Types of Errors:
-//  - Syntax Error: Incorrect use of predefined syntax
-        // - Missing bracket, parenthesis, etc.
-
-function hello() {
-    console.log("hello");
+function func1(num) {
+    return num + 50;
 }
 
-// hello();
+function func2(num) {
+    return num + " bottles of beer on the wall";
+}
 
-//  - Reference Error: represents an error when an operation cannot be performed
+function func3(num) { // 5
+    var x = func1(num); //  x = 5 + 50; 55
+    return func2(x); // 55 + " bottles of beer on the wall"
+}
 
-// hello();
+  var result = func3(5);
 
-
-//  - Type Error
-
-// var car = ["wheel", "windows", "engine"]
-
-// car();
-
+  console.log(result); // What does this print out?

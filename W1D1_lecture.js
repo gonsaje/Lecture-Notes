@@ -1,203 +1,202 @@
-// Primitive Data Types:
-// All primitive Data types are immutable
+// Primitive Data Types
+// Primitive data types are immutable
 
-// Strings'
-
-// 'hello' 
-// "hello" 
+// Strings
+// "hello"
+// 'hello'
 // `hello`
+// console.log("hello");
 
-// Every String has a boolean value of true except an empty string
-
-// console.log("hello world, I'm learning to code")
-// console.log('he said, "hello"')
+// All strings have a truthy value except an empty string '' 
+// An empty string is a falsey value
 
 // Indices & Length
+//   "hello"
+// L: 12345
+// I: 01234
 
-// console.log("hello".length);
-
-// Index starts from 0 
-// Length starts from 1
-//     "hello"
-// L:   12345
-// I:   01234
-
-// Index into strings using brackets <string>[<index>]
-
-// console.log("hello"[0]);
-// console.log("hello"["hello".length - 1]); // "hello"[5]
-
-// To grab the last index of a string
-// We can run <string>.length - 1
+// <string>[index] => return the character stored at the specific index place
+// <string>.length => return the length of the attached string
+// console.log("hello"[2]);
+// console.log("hello"["hello".length - 1]);
+// "hello world, my name is jae and im learning how to code".length - 1
 
 // String Built-In Methods
 
-// <string>.toUpperCase()
-// console.log("HeLlo".toUpperCase());
-// console.log("HELLO".toLowerCase());
+// <string>.length // property
+// returns length of string
+// "hello world".length => 11
 
-// var greet = "hello";
-// console.log(greet[0] = 'j');
-// console.log(greet);
-
-// <string>.length returns the length of string
-
-// <string>.indexOf(<input>) returns the index of the first instance of the input
-// when indexOf cannot find the input in the string => returns -1
-
-// console.log("hello".indexOf("hello"));
-
-// <string>.includes(<input>) => returns true or false based on the existence of input in string
-// console.log("hello".includes("e"))
-
-// <string>.slice(<start>, <end>)
-// returns a sliced version from the start index (inclusive) to end index (exclusive)
-// <end> index isn't strictly necessary
-// if only a <start> index is inputted, .slice() will return a string from the start index to the end
-// if no input is put in, .slice() returns a shallow copy of the string
+// <string>.toUpperCase() // camelCase
+// returns uppercased string
+// console.log("hEllo".toUpperCase());
 
 
-// console.log("hello".slice(1, 3)); // "el"
-// console.log("hello".slice());
+// <string>.toLowerCase() // camelCase
+// returns lowercased string
+// console.log("HeLlO".toLowerCase());
 
-// camelCase
+// <string>.indexOf(<searchString>)
+// returns the index of the first instance of the searchString in the main string
+// returns -1 if it doesn't exist in string
+// console.log("hello".indexOf("l"));
+// console.log("hello".indexOf("ell"));
+// console.log("hello".indexOf("xul"));
+
+// <string>.includes(<searchString>);
+// returns true/false based on whether searchString exists in string
+// console.log("hello".includes("low"));
+
+// <string>.slice(start, [end])
+// returns a sliced string from start index (inclusive) to end index (exclusive)
+// console.log("hello world".slice(2));
+// console.log("hello world".slice(2, "hello world".length - 1));
+// console.log("hello world".slice()) // no input creates a shallow copy of the string
 
 // Numbers
 
-// operators: +, -, *, /
-// modulo (%): gives us the remainder of division
-
-// console.log(3 % 14)
-
+// Operators: +, -, *, /
+// modulo operator (%) => returns the remainder of division
+// console.log(5 % 3) 
 // PEMMDAS
-// modulo has same priorityu as mult/div
 
-// console.log(4 * 12 % 5)    // 6
-// console.log((4 + 12) % 5)  // 1
+// Booleans
+// True/False
 
-// Boolean
-// true
-// false
+// Falsey Values: false, 0, "", null, undefined, NaN
 
-// console.log(Boolean("hello"))
+// console.log(Boolean(0))
 
-// Every Data rtpe in JS has a Boolean value
+// comparisons:
+//  <, >, <=, >=
+// ! (Bang) => not 
+// console.log(!false)
+// === => strict comparison => checks for same value and same data type
+// == => loose comparison => tries to find a point of equivalence somewhere
+// !== => does not equal
 
-// falsey values:
-
-//  false, '', 0, null, undefined, NaN
-
-// null means empty or no value present
-// null is explicitly assigned (human input)
-
-// undefined means something has been declared but not yet defined (computer output)
-
-// Comparisons
-
-//  any comparison results in a boolean
-// >, <, >=, <=
-// === / ==
-// strict comparison (===): checks for equal value and same data type
-// loose comparison (==): tries to convert one side to the other
-// ! (NOT) => inverses the boolean of whatever its attached to
-// !== => not equals
-// !=
-
-//  || (OR) only one side has to return true
-// && (AND) both sides must return true
-// AND takes precedene over OR
+// console.log("5" === 5);
 
 
-// console.log((5 > 3 || 2 * 5 === 11) && 2 === 2)
+// || (OR) Only requires one side to be true to return true
+// && (AND) Requires both sides to be true to return true
+// && takes precedence over the || 
+// console.log(10 % 2 === 0 || (10 % 5 !== 0 && 3 === 3))
+//              true             false        true
+
+// Undefined / Null
+
+// Null (human input) => as a placeholder to indicate that a value is missing
+// Undefined (computer output) => is returned when something is defined but holds no value
 
 // Type Coercion
 
 // Implicit
-// console.log(123);
-// console.log("fish" + 123);
 
-// // Explicit
-// console.log(String(123) + 5);
-// console.log(Number('hello'));
-// console.log(Boolean(123))
+// console.log(2 + "fish");// => converting number to string
+// console.log(2 + "2");
+
+// Explicit
+
+// console.log(Boolean("hello"))
+// console.log(4)
+// console.log(Number("hello"))
+// console.log(2 * 'fish')
+// NaN => Not a Number
 
 
 // VARIABLES
-//  Everything in JavaScript can be evaluated
-// variables are containers that can be evaluated
-//  variables always evaluate to the value they contain
+// storage containers that can be evaluated
 
-// assign and initialize a variable
-
-var myNum;
-myNum = 42;
+// var myNum2 = 48 // oudated syntax
+let myNum = 24;
+// console.log(myNum);
+// myNum = myNum + 12; // variable reassignment
+// myNum /= 12;
 // console.log(myNum);
 
-// console.log(myNum + 1);
-// myNum = myNum + 1;
-// myNum += 1;
-// myNum -= 10;
-// myNum *= 2;
-// myNum /= 6;
+// Postfix // the evaulation occurs ater the execution
+// myNum++ // myNum += 1
+// myNum-- // myNum -= 1
 
-// myNum++; // myNum += 1
-// myNum--;
+// Prefix //  the evaulation happens during the execution
+// ++myNum
+// --myNum
 
-// console.log(--myNum); // postfix => performs the operation after the console.log
-// // console.log(++myNum); // prefix => performs operation before console.log
-// console.log(myNum);
+// console.log(++myNum);
+// console.log(myNum)
 
-// var greeting = "hello";
-// console.log(greeting)
+// let greeting = "Hello World";
+// console.log(greeting.toLowerCase())
 
-// CONDITIONALS
-//  a way for us to direct our code to behave in a specific manner based on a condition
+// Conditionals
+// a way for us to direct our code to behanve in a specific manner based on a condition
 
-// if (condition) {<code>}
-// else if (condition) {<code>}
-// else {<code>}
-
-var num = 20
-
-// if (num + 2 === 3) {
-//     console.log("Branch 1");
+// if (condition) {
+// } else if (condition) {
 // } else {
-//     console.log("Branch 2");
 // }
 
-// if (num < 0) {
-//     console.log('negative');
-// } else if (num > 0) {
-//     console.log('positive');
+// A condtional chain must only have 1 if-block & 1 else-block
+//  However can have as many else-if's
+let num1 = 14;
+// if (num1 % 2 === 0) {
+//     console.log("even");
 // } else {
-//     console.log('zero');
+//     console.log("odd");
 // }
 
-// if (num <= 5) {
-//     console.log("small");
-// } else if (num > 5 && num <= 20) {
-//     console.log('medium');
-// } else if (num > 20 && num <= 50) {
-//     console.log('large')
+
+// if (num1 % 3 === 0) {
+//     console.log('three');
+// } else if (num1 % 5 === 0) {
+//     console.log('five');
+// } else if (num1 % 5 === 0 && num1 % 3 === 0) {
+//     console.log("divisible by both");
 // } else {
-//     console.log('mega');
+//     console.log("nothing");
 // }
 
+//conditional chain returns one thing
 
-// if (num > 0) {
-//     console.log('positive');
-// }
+if (num1 % 3 === 0) {
+    console.log(true);
+}
 
-// if (num < 0 || num === 20) {
-//     console.log('negative');
-// } 
+if (num1 % 5 === 0) {
+    console.log(true);
+}
 
+//adjacent conditionals are both checked
 
-// var num = 10;
+let str = "goodnight moon";
 
-// if (++num > 10) {
-//     console.log('ding');
+//  if the string is longer than 10 characters then print :long
+// less than 10 but longer than 5 => "medium"
+// "short"
+
+// if (str.length >= 10) {
+//     console.log("long");
+// } else if (str.length < 10 && str.length >= 5) {
+//     console.log("medium");
 // } else {
-//     console.log('none');
+//     console.log("short");
 // }
-// console.log(num); 
+
+
+let tip = 1.5;
+let bill = 15;
+
+// Variable Naming => camelCase & practice goodnaming => be descripive but not too much
+
+let alexNum = 5;
+
+// bill * .15
+// if our tip is 15% or greater => return "good tip"
+// return "bad tip"
+
+if (tip >= bill * .15) {
+    console.log("good tip");
+} else {
+    console.log("bad tip");
+}
