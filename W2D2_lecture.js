@@ -10,13 +10,15 @@ let arr = ['abc', 'bgh', 'c', 'd']; // ordered/sequenced list-like objects
 // Values: Any data type in JS
 
 let car = {
-    0: "Toyota",
+    // 0: "Toyota",
+    key: "value",
     "model": "Camry",
     "year": 2017,
     "issues": ["oil change", "bad brakes", "no windshield fluid", "inspection due"],
     "stolen": true,
     color: "blue",
-    previousOwners: {name: "Kevin", age: 21, loc: 'NY'}
+    previousOwners: {name: "Kevin", age: 21, loc: 'NY', favFoods: [{name: "emapanada", ingredients: [""]}]},
+    dealership: "NYC TOYOTA"
 };
 
 // console.log(car);
@@ -27,15 +29,19 @@ let car = {
 
 // Getting data from an object
 // Bracket Notation
-// <object>[<keyStr>]
+// <object>[<keyStr>] // both are specific keyName but bracket notation needs a string
 
 // Dot Notation => Must know specific key name
 // <object>.<keyName>
 
+
 let key = "gearbox";
-car[key] = "automatic"
+car[key] = "automatic" // car["gearbox"]
 car["rust"] = true;
 car.gasTank = 60; 
+
+car["gasTank"]
+car.gasTank
 // console.log(car["previousOwners"]["age"]);
 
 let issuesArr = car.issues; // ["oil change", "bad brakes", "no windshield fluid", "inspection due"]
@@ -62,10 +68,13 @@ let boat = {
 //     console.log(property + " " + value);
 // }
 
-for (let key in arr) {
-    let value = arr[key];
+for (let key in car) {
+    console.log(key)
+    console.log(" ")
+    let value = car[key]; // car["key"], car["model"], car["issues"]
 
-    // console.log(value);
+    console.log(value);
+    console.log("------------")
 }
 
 
@@ -183,15 +192,15 @@ function countVotes(results) {
     return tally;
 };
 
-console.log(countVotes(votingResults)); 
-  // => { Henry: 6, Janice: 8 }
+// console.log(countVotes(votingResults)); 
+//   // => { Henry: 6, Janice: 8 }
 
 
   
-function schoolPrez(votes) {
+// function schoolPrez(votes) {
       
-}
+// }
 
-let schoolVotes = [{ Henry: 6, Janice: 8}, { Adam: 10, Jenny: 3}, { Tyson: 16, Lisa: 18}];
-console.log(schoolPrez(schoolVotes)) // => Lisa
+// let schoolVotes = [{ Henry: 6, Janice: 8}, { Adam: 10, Jenny: 3}, { Tyson: 16, Lisa: 18}];
+// console.log(schoolPrez(schoolVotes)) // => Lisa
 

@@ -1,61 +1,30 @@
-// Data Modeling
+// Data Modeling 
 
-// Array vs. Objects
+// Arrays vs. Objects
 
-// Arrays
-// They are ordered/sequenced
-// Iteration & Sorting
+// Objects are better with complex data
+// Not good with looping and sorting
 
-let nums = [0, 2, 3, 4, 1]
-
-console.log(nums.sort((a,b) => a-b ));
-
-let obj = {
-    sauce: 'ketchup'
+let userObj = {
+    name: "Josh",
+    job: "Architect",
+    shirt: "Orange"
 }
 
-// Objects are better for complex data
+let userArr = [ ['name', 'Josh'], ['job', 'architect'], ["shirt", "Orange"] ];
 
-let user1 = ["bAlsi123", 'password123', 'san francisco'];
+let targetProp = "name"
+for (let i = 0; i < userArr.length; i++) {
+    let pair = userArr[i];
+    let prop = pair[0];
 
-let user2 = {
-    username: "bAlsi123",
-    password: 'password',
-    friends: [{username: "richardPancakes", location:"NY"}, ]
-}
-
-// Ford, Mustang
-// Honda, Civic
-// Mazda, 626
-// Chevy, Tahoe
-// Dodge, Charger
-// Kia, Rio
-
-let racecar = {
-    company: 'Ford',
-    model: 'Mustang',
-    year: 1990
+    // if (prop === targetProp)
 }
 
 
 
-function maxValue(numbers) { // [1,2,3]
-    var largest = null; // 1
-  
-    for (var i = 0; i < numbers.length; i += 1) {
-      var num = numbers[i]; // 1
-  
-      if (largest === null || num > largest) {
-        largest = num;
-      }
-    }
-  
-    return largest; // 3
-}
+// Arrays are great for sorting
+// require iteration for lookups
+// Random Access and Sequential Access
 
-console.log(maxValue([1,2,3]))
-let i = 0;
-while (true) {
-    console.log(i)
-    // break;
-}
+let numbers = [9, 3, 4, 2, 10, 1];
