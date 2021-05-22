@@ -4,18 +4,12 @@
 //
 
 /* 
-receive an array of elements
-loop over the array and grab each ele
-print each element with its corresponding index (console.log)
+
 */
 
 function logEach(array) {
 
-    for (let i = 0; i < array.length; i++) {
-        let ele = array[i];
-
-        console.log(i + ": " + ele);
-    }
+ 
    
 }
 
@@ -31,28 +25,28 @@ function logEach(array) {
 // Write a function range(start, end) that returns an array that contains all
 // numbers between 'start' and 'end' in sequential order.
 //
+
 /* 
-receive 2 numbers (start, end)
-
-init a new array
+receive start end
+init countDown var => array
 loop from start to end
-and push each value of i into an array
+push each num to arr
 
-return array of numbers
+return the new arr
 */
 
 function range(start, end) {
-    let rangeArr = []; // [1, 2, 3, 4]
+    let countDown = [];
 
-    for (let i = start; i <= end; i++) {
-        rangeArr.push(i); 
+    for(let i = start; i <= end; i++) {
+        countDown.push(i);
     }
 
-    return rangeArr;
+    return countDown;
 }
 
 // Examples:
-//
+// //
 // console.log(range(1,4)) // => [1,2,3,4]
 // console.log(range(4,2)) // => []
 
@@ -65,14 +59,11 @@ function range(start, end) {
 //
 
 /* 
-receive array of nums
-init sum var
+init sum set to zero
+loop over array 
+add each ele to sum
+return sum
 
-loop over the nums array
-grab each number
-add number to sum var (increment)
-
-return a singular sum
 */
 
 
@@ -100,24 +91,24 @@ function sumArray(array) {
 //
 
 /* 
-receive array of words
+receive array of words (point A)
 
-init a new arr
-loop over given array of words
-grab each indiv word => capitilize word
-push capped word into new arr
+init a new arr 
+loop over given words arr
+grab each indiv word (ele)
+set each word to uppercase and push uppercased word to new arr
 
-return a new array of cap words
+return a new array of original to all caps (point B)
 */
 
 function capWords(words) {
     let capArr = [];
 
     for (let i = 0; i < words.length; i++) {
-        let word = words[i];
-        let capWord = word.toUpperCase();
+        let word = words[i].toUpperCase();
+        // let capWord = word.toUpperCase()
 
-        capArr.push(capWord);
+        capArr.push(word);
     }
 
     return capArr;
@@ -135,28 +126,29 @@ function capWords(words) {
 //
 
 /* 
-receive a string (sentence)
+receive a str 
 
-create a var => split sentence => words arr
-create a new arr to collect our modified words
-loop over our wordsArr to grab each word and add a period at the end
-push the modified word to the new arr
+init a new arr
+split up sent into words on a space
+loop over words
+add period to each indiv word and push to arr
+join arr to form new str
 
-return new sent => joining the new arr on a space
+return a new str with periods at the end of each word
 */
 
 function wordPeriods(sentence) {
-    let wordsArr = sentence.split(" "); // ['hello', 'world']
-    let periodsArr = [];
+    let newArr = [];
+    let words = sentence.split(" ");
 
-    for (let i = 0; i < wordsArr.length; i++) {
-        let word = wordsArr[i];
+    for (let i = 0; i < words.length; i++) {
+        let word = words[i];
         let newWord = word + ".";
 
-        periodsArr.push(newWord);
+        newArr.push(newWord);
     }
 
-    return periodsArr.join(" "); // ['hello.', 'world.'] => 'hello. world.'
+    return newArr.join(" ");
 }
 
 
@@ -173,30 +165,25 @@ function wordPeriods(sentence) {
 //
 
 /* 
-receive array of numbers
-init a var => track max val => set it init to null
+receive array of num
 
-loop over array
-grab each num
-compare to max val
-if greater than max val => reassign maxval to be current num
+init a new var to track value => set default to null;
+loop over array of nums
+compare each indiv num to max 
+    - if maxValue is null => set current value to be new max
+    - otherwise if current value is greater than max Value => set current value to be new max
 
-return max val
+return the max value in the array
 */
 
 function maxValue(array) {
+    let max = null;
 
-    if (array.length < 1) { //invalid array
-        return null;
-    }
+    for (let i = 0; i < array.length; i++) {
+        let currentNum = array[i];
 
-    let max = array[0];
-
-    for (let i = 1; i < array.length; i++) {
-        let num = array[i];
-
-        if (max < num) {
-            max = num;
+        if (max === null || currentNum > max) {
+            max = currentNum;
         }
     }
 
@@ -209,12 +196,20 @@ function maxValue(array) {
 // console.log(maxValue([])); // => null
 // console.log(maxValue([-4, -10, 0.43])); // => 0.43
 
+/* 
+receive num and factor
+check if factor is factor of num
+return true if true
+
+
+*/
+
 function isFactorOf(number, factor) {
-    return number % factor === 0;
+
 }
 
-// console.log(isFactorOf(6, 2));
-// console.log(isFactorOf(5, 0));
+// console.log(isFactorOf(6, 2)); // true
+// console.log(isFactorOf(5, 2)); // false
 
 ////////////////////////////////////////////
 
@@ -227,26 +222,11 @@ function isFactorOf(number, factor) {
 //
 
 /* 
-receive array and target
 
-loop over the array
-grab each ele and compare with target
-if its a match return the current index
-
-return an index number or -1
 */
 
 function myIndexOf(array, target) {
 
-    for (let i = 0; i < array.length; i++) {
-        let ele = array[i];
-
-        if (ele === target) {
-            return i;
-        }
-    }
-
-    return -1;
 }
 
 // Examples:
@@ -262,28 +242,27 @@ function myIndexOf(array, target) {
 //
 
 /* 
-receive array of nums and number
-init new arr
+receive array and number
 
-loop over numsArr and grab each num
-ccheck if number leaves no remainder when modulod to the larger number
-push to new arr if valid factor
+init new var factors (arr)
 
-return new array of valid factors
+loop over given array
+look at each num
+check if each ele is a factor of given number 
+if true => push to factors arr
+
+return array of factors of given number
 */
 
-function factorArray(array, number) {
+function factorArray(array, number) { // [2,3,4,5,6]
     let factors = [];
 
-    let i = 0;
-    while (i < array.length) {
-        let factor = array[i];
+    for (let i = 0; i < array.length; i++) { // i = 0
+        let ele = array[i]; // 2
 
-        if (number % factor === 0) {
-            factors.push(factor);
+        if (number % ele === 0) {
+            factors.push(ele);
         }
-
-        i++;
     }
 
     return factors;
@@ -291,7 +270,7 @@ function factorArray(array, number) {
 
 // Examples:
 // //
-console.log(factorArray([2,3,4,5,6],20)) // => [2,4,5]      20 = 2 * 10, 20 = 4 * 5
+console.log(factorArray([2,3,4,5,6],20)) // => [2,4,5]    
 console.log(factorArray([2,3,4,5,6],35)) // => [5]
 console.log(factorArray([10,15,20,25],5)) // => []
 
