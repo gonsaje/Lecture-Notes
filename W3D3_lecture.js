@@ -1,107 +1,98 @@
-// MATH OBJECT
+// Math Objects
 
-// console.log(Math.max(12, 4, 5, 6, 9));
-// console.log(Math.min(12, 4, 5, 6, 9));
+// console.log(Math.max(1, 2, 3, 41, 5));
+// console.log(Math.min(1, 2, 3, 41, 5));
 
-let numbersArr = [-3, 24, 3000, 0, 8];
+// let numsArr = [ 13, 23, -42, 100, 12];
 
-// spread operator ... => tells JS thatthe input passed in should not be read as a singular input
-// console.log(Math.min(...numbersArr));
+// spread operator (...) => tells JS that the input passed has the possibility to be more than one input
+// console.log(Math.min(...numsArr));
 
-// console.log(Math.floor(2.999999999999999)); // rounds down to the nearest integer
-// console.log(Math.ceil(1.1)); // rounds up to the nearest integer
-// console.log(Math.round(2.4));
+// console.log(Math.floor(2.99999999)); // always rounds down a number to the nearest integer
+// console.log(Math.ceil(2.12)); // always rounds up a number to the nearest integer
+// console.log(Math.round(2.4)); // tradtional rounding
 
-// console.log(Math.sqrt(47));
-// console.log(Math.pow(2, 2)); // first input is base, second input is the raised power 
+// console.log(Math.sqrt(36)); // square root
+// console.log(Math.pow(5, 5)); // 2^2 Math.pow(<base>, <exponent>)
 
-// console.log(Math.abs(-9 - 6));
-
-// console.log(Math.random() * 100); // returns random number between 0 and 1 .0000056
+// console.log(Math.abs(134)); // absolute value (distance from zero)
+// console.log(Math.floor(Math.random() * 100)); // a random decimal from 0 to 1 (exclusive)
 
 // console.log(Math.PI);
+// console.log(Math.sign(0)); // if the num is neg => -1, pos => 1, zero => 0
 
-// console.log(Math.sign(0)); // tells us if the number inputted is pos (1), neg (-1), or zero (0)
 
+// Callbacks / Higher Order Functions
 
-// Higher Order Functions & Callbacks
-// A higher order function is a function that receives another function as a parameter/argument
+// A higher order function is a functino that receives another function as a parameter/argument
 // A callback is a function that is passed in as an argument to a HOF
 
-function example(name) {
-    console.log("hello " + name);
+
+function example(cb) { // higher order function
+    console.log('before');
+
+    cb(); // execution of the received callback
+
+    console.log('after');
 }
 
-// example("Josh");
-function func1(cb) {
-    console.log("before");
-
-    cb();
-
-    console.log("after");
+function callback1() { // callback function
+    console.log('during');
 }
 
-function hello() {
-    console.log("hello");
+function callback2() {
+    console.log("hello world");
 }
 
-// func1(hello);
+// example(callback1);
+
+// console.log("////////////////////////////////////////////////");
+
+// example(callback2)
+
+// console.log("////////////////////////////////////////////////");
+
+// example(function callback3() {console.log("I am callback 3");})
 
 
-// console.log(" ")
 
-// func1(function goodbye() {console.log("goodbye")});
-
-// Callbacks vs. Helpers
-// Callbacks are part of the HOF main functionality
-// Helpers are functions that help simplify another functions logic
-
-
-function f1(cb, str) { //  respond, "Crocodile"
-	var result = cb(str); // respond("Crocodile")
-	console.log('result of callback: ' + result);
+function f1(cb, str) { // respond, "Crocodile"
+    var result = cb(str); // respond("Crocodile") => After a while, Crocodile
+    console.log('result of callback: ' + result); 
 }
 
-function sayGoodbye(name) {
-        return 'See ya later, ' + name;
+function sayGoodbye(name) { // Alligator
+    return 'See ya later, ' + name;
 }
 
-function respond(name) {
-        return 'After a while, ' + name;
+function respond(name) { // 
+    return 'After a while, ' + name;
 }
 
-// f1(sayGoodbye, 'Alligator'); // see ya later, alligator
-// f1(respond, 'Crocodile');    // after a while, crocodile
+// f1(sayGoodbye, 'Alligator'); // See ya later, Alligator
+// f1(respond, 'Crocodile');    // After a while, Crocodile
 
-// function newWords(sent) {
-//     let words = sent.split(" ");
-//     let removed = [];
-//     let vowels = "aeiou"
 
-//     for (let i = 0; i < words.length; i++) {
-//         let word = words[i];
-//         let newWord = removeVows(word)
+// Callbacks vs Helper functions
+
+/* Callbacks => they are part o the HOF's main functionality
+             => Callbacks can change based on the inputted function
         
-//         for (let j = 0; j < word.length; j++) {
-//             let char = word[j];
+*/ 
 
-//             if (!vowels.includes(char)) {
-//                 newWord += char;
-//             }
-//         }
+/* 
 
-//         removed.push(newWord);
-//     }
+Helper => not strictly necessary
+       => aids another functions functionality
+       => will always be the same function no matter the call
 
-//     return removed.join(" ");
-// }
-// // function removeVows(str)
+*/
 
-// console.log(newWords("hello bootcamp"))
 
-function addAndCall(num1, num2, cb) {
-    var sum = num1 + num2; // 9
-    return cb(sum); // Math.sqrt(9)
+
+function addAndCall(num1, num2, cb) { // 
+    var sum = num1 + num2; // 
+    return cb(sum); // return console.log(2)
 }
 
 function yellAnswer(answer) {
@@ -109,118 +100,175 @@ function yellAnswer(answer) {
 }
 
   function double(num) {
-    return num * 2; //24
+    return num * 2;
 }
 
-// addAndCall(40, 2, yellAnswer);  // 42 IS THE ANSWER!
-// addAndCall(1, 1, console.log);  // 2
-// console.log(addAndCall(10, 2, double));      // 24
-// console.log(addAndCall(7, 2, Math.sqrt));    // 3
+addAndCall(40, 2, yellAnswer);  // 42 IS THE ANSWER!!
+addAndCall(1, 1, console.log);  // 2
+console.log(addAndCall(10, 2, double) ); // 24
+console.log(addAndCall(7, 2, Math.sqrt) ); // 3
 
-// Callback Methods (Built-in Methods for the Array class/prototype)
+
+
+// Callback Methods (Built-In Methods for Arrays)
 
 /* 
 <array>.forEach()
+
 Another way to iterate over an array
 
-******ORDER MATTERS*****
-First parameter => is ALWAYS element
-Second => ALWAYS index
-Third => array
+****************ORDER MATTERS******************
+FIRST PARAMETER => element
+SECOND PARAMETER => index
+THIRD PARAMETER => entire array
 
 */
 
-// let nums = [1,2,3,4,5];
-// let evens = []
+let nums = [1, 2, 3, 4, 5];
+let evens = [];
+// regular function declaration
+nums.forEach(function(ele) {
+    // console.log("element is " + ele);
+    // console.log("                       index is " + banana);
+    // console.log("                                           array is" + orange);  
+})
 
-// nums.forEach((ele) => {
-//     console.log(ele);
-//     if (ele % 2 === 0) {
-//         evens.push(ele);
-//     }
-
-// })
+///////////////////////////////////
+// fat arrow function
+nums.forEach( (el, i, arr) => {
+    if (el % 2 === 0) {
+        evens.push(el);
+        // console.log(i, arr);
+    }
+})
 
 // console.log(evens);
 
-
-///////////////////////////////////////////////
+//****************************************************** */
 
 /* 
-
 <array>.map()
 
-Returns a new array with each elemnt of the original array 
-changed by the anonymous callback function
+Returns a new array with each element of the original array
+modified by the anonymous callback function
+
 */
 
-// let numsArr = [21,2,-3,45,500];
+let nums2 = [5, 6, 7, 8, 9];
 
-function doubled(nums) {
-    let doubleArr = nums.map((num) => {
-        if (num > 0) {
-            return num * 2;
-        } else {
-            return num;
-        }
+function doubled(numArr) {
+
+
+    let doublesArr = numArr.map( (num) => {
+        return num * 2;
     })
 
-    return doubleArr;
+    return doublesArr;
 }
 
-// console.log(doubled(numsArr)); // [42, 4, -6, 90, 1000];
+/////////////////////////////////////////////
 
-///////////////////////////////////////////////
+function doubled(numArr) {
+
+
+    let doublesArr = numArr.map( (num) => {return num * 2;} )
+
+    return doublesArr;
+}
+
+// console.log(doubled(nums2)); // [10, 12, 14, 16, 18]
+
+
+//****************************************************** */
 
 /* 
-
 <array>.filter()
 
-Returns a new array of only elements that return true when passed to anon cb function
+Returns a new array of elements that return true when passed 
+to the anonmyous callback function
+
 */
 
-// let numsArr = [21,2,-3,45,500];
+let nums3 = [21, 2, -3, 45, 500];
 
 function onlyEvens(arr) {
-    let evensArr = arr.filter((num) => {
+    let evensArr = arr.filter( (num) => {
         return num % 2 === 0;
-    })
+    } );
 
     return evensArr;
 }
 
-// console.log(onlyEvens(numsArr));
+// console.log(onlyEvens(nums3)); // [2, 500]
+
+let letters = ['a', 'b', 'c', 'd', 'e']
 
 function noVowels(arr) {
-    let consonantsArr = arr.filter((char) => {
-        return !"aeiou".includes(char);
-    })
 
-    return consonantsArr;
+    let consonants = arr.filter( (char) => {
+        return "aeiou".indexOf(char) === -1;
+    } )
+
+    return consonants;
 }
 
-
-// console.log(noVowels(["a", "b", "c", "d", "e"]))
-
-///////////////////////////////////////////////
-
-//<array>.every() returns true if every element in the function returns true when passed to anon cb
-
-// let numsArr = [21,2,-4,44,500];
-
-// let result = numsArr.every((num) => {
-//     return num % 2 === 0;
-// })
-// console.log(result);
-
-///////////////////////////////////////////////
-
-//<array>.some() returns true if even one element in the function returns true when passed to anon cb
+// console.log(noVowels(letters)); // ['b', 'c', 'd']
 
 
-let numsArr = [21,21,-41,441,5001];
+//****************************************************** */
 
-let result = numsArr.some((num) => {
-    return num % 2 === 0;
-})
-console.log(result);
+/* 
+<array>.every()
+
+Returns true if all elements in the array return true when passed
+to the anonymous callback function
+
+Returns false if even 1 element in the array returns false when passed
+to the anonymous callback function
+
+*/
+
+
+let nums4 = [52, 6, 7, 8, 92];
+let nums5 = [52, -6, 7, 8, 92];
+
+function allPositive(arr) {
+
+    let result = arr.every( (ele) => {
+        return ele > 0;
+    });
+
+    return result;
+}
+
+// console.log(allPositive(nums4)); // true
+// console.log(allPositive(nums5)); // false
+
+//****************************************************** */
+
+/* 
+<array>.some()
+
+Returns true as long as just 1 element in the array return true when passed
+to the anonymous callback function
+
+Returns false if all elements in the array return false when passed
+to the anonymous callback function
+
+*/
+
+
+let nums6 = [52, 6, 7, 8, 92];
+let nums7 = [52, -6, 7, 8, 92];
+
+function someNegative(arr) {
+
+    let result = arr.some( (ele) => {
+        return ele < 0;
+    });
+
+    return result;
+}
+
+// console.log(someNegative(nums6)); // false
+// console.log(someNegative(nums7)); // true

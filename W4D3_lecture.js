@@ -1,113 +1,122 @@
-// Recursion
+//  Recursion
 
-// Call Stack 
-// Data Structure that handles all code executions 
+// Call Stack
+// A data sructure that handles all code executions
 
-function f1(num) { // 1 // execution flow: current line being executed
-    f2(num + 1); // f2(2) // paused function: the function is waiting
-    console.log(num); // 1
+function hello() {
+    console.log('hello');
+}
+
+// hello();
+
+function f1(num) { // execution flow: current line being executed
+    f2(num + 1); // paused function: the function is waiting
+    console.log(num); 
 }
   
 function f2(num) {
+    // execution context: the values available to a function
     f3(num + 1); // paused
-    console.log(num); // 2
+    console.log(num); 
 }
   
 function f3(num) {
     f4(num + 1);
-    console.log(num); // 3
+    console.log(num); 
 }
   
-function f4(num) { // 4
+function f4(num) { 
     console.log(num);
 }
   
+
 // f1(1);
 
-// Recursion
+
 // What is Recursion?
 // Recursion is a process (function) that calls upon itself
-// If a problem can be solved recursively, it can also be solved iteratively
+// If a problem can be solved recursively, it can also be solve iteratively
 
 // Anatomy of a Recursive Function
-//  - Base Case
-//  - Different Input => moves us closer to base case 
-//  - Return statement => ends recursive call
+//  - BaseCase
+//  - Different Input on each recursive call => moves us closer to the base case
+//  - return statement => ends recursive call
 
-//count from given number up to 10
-function countUp(num) { // recursive
-    if (num > 4) { //  BaseCase;
-        console.log("All Done");
-        return;
-    }
-
-    console.log(num);
-    countUp(num + 1); // Different Input
-}
-
-// function countUp(num) { // iterative
-//     for (let i = num; i < 11; i++) {
-//         console.log(i);
+// for (let i = 4; i < Infinity; i += 2) {
+//     if (i === 10) {
+//         console.log("All Done");
+//         break;
 //     }
 
-//     console.log("All Done");
-//     return;
+//     console.log(i);
 // }
 
-// countUp(3);
+// count from given number up to 10
+function countUp(num) { // 10 
+    if (num >= 10) { // BaseCase
+        console.log("All Done!");
+        return; // Return Statement to break call
+    }
+
+    countUp(num + 1); // Different Input to get closer to base case
+    console.log(num);
+}
+
+// countUp(4);
 
 // Common Downfalls of Recursion
-//  - no basecase/ wrong basecase
-//  - forgetting to return or returning the wrong thing
-//  - stack overflow (beefy functions, different input doesnt move towards basecase, etc.)
+// - No Basecase/ wrong BaseCase
+// - forgetting to return or returning the wrong thing
+// - stack overflow (beefy functions, different input doesn't move towards basecase, etc.)
 
 
 // Print all Numbers greater than or equal to 0
-// BaseCase: when num < 0 print "Blast Off" and return
+// BaseCase: when num < 0 print "Blast Off" and end recursive call
+
 
 function countDown(num) {
-    if (num < 0) { // basecase
-        console.log("Blast Off");
+    if (num <= 0) {
+        console.log('Blast Off');
         return;
     }
 
     console.log(num);
-    countDown(num - 1); // rec call with diff input
+    countDown(num - 1);
 }
 
 // countDown(10);
 
 
-// Basecase: if num === 0 || num === 1, return 1
-//  4 => 4 * 3 * 2 * 1
+// BaseCase: if (num === 0 || num === 1) return 1;
+// 4 => 4 * 3 * 2 * 1
 
 function factorial(num) {
-    if (num === 0 || num === 1) {
-        return 1;
+    if (num === 0 || num === 1) { //  basecase
+        return 1; // return statement (first stored value returned)
     }
 
-    return num * factorial(num - 1);
+    return num * factorial(num - 1); // recursive call w/ different input
 }
 
-// console.log(factorial(4)); 
-// console.log(factorial(0)); // 1 
-
-// fact(4) // => 4 * fact(3) // 24
-// fact(3) // 3 * fact(2)
-// fact(2) // 2 * fact(1)
-// fact(1) // 1
+// console.log(factorial(4)); // 24
+// console.log(factorial(0)); // 1
 
 
-let numbers = [5012, 2014, 7766, 9000];
 
-function allEvens(array) {
-    if (array.length === 0) {
+
+// fact(4) => 4 * 6 => 24
+///////CS///////
+
+let nums = [5012, 2014, 7766, 9000];
+
+function allEvens(arr) { // []
+    if (arr.length === 0) {
         return true;
-    } else if (array[0] % 2 !== 0) {
+    } else if (arr[0] % 2 !== 0) { // 9000 % 2 !== 0
         return false;
     }
 
-    return allEvens(array.slice(1)); //  [2013, 7766, 9000]
+    return allEvens(arr.slice(1)); // different
 }
 
-console.log(allEvens(numbers))
+console.log(allEvens(nums));

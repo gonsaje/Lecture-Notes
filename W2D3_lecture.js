@@ -1,176 +1,156 @@
-// Nested Loops
+// NESTED LOOPS
 
-// Loops
+// LOOP
 // let arr = [1,2,3];
-
 // for (let i = 0; i < arr.length; i++) {
 //     console.log(arr[i]);
 // }
 
-// Find Pairs
 
-// for (let i = 0; i < 3; i++) {
+// Nested Loops
 
-//     console.log("outer loop: " + i);
-//     for (let j = 0; j < 5; j++) {
+for (let i = 0; i < 3; i++) {
+    // console.log("Outside " + i);
 
-//         console.log("                       inner loop: " + j);
-//     }
-// }
+    for (let j = 0; j < 5; j++) {
+        // console.log("                   middle Loop  " + j);        
 
-// Multiple Pointers
+        for (let x = 0; x < 7; x++) {
+            // console.log("                                           inside " + x);        
+        }
+    }
+}
 
-let students = ["Josh", "Helen", "Matteo", "Michael", "Alex", "Yefeng", "Janelia", "Amory"];
-// pointer i:                                  i
-// pointer j:                                             j
+// - Find Pairs / Multiple Pointers
 
-// for (let i = 0; i < students.length; i++) { // outer most loop
-//     let student1 = students[i];
+let people = [ "Ulises", "Jae", "Kevin", "Cheesecake", "Pudding" ];
+//                                i
+//                                            j
 
-//     for (let j = i + 1; j < students.length; j++) { // mid loop
-//         let student2 = students[j];
+for (let i = 0; i < people.length; i++) {
+    let person1 = people[i];
 
-        
-//         for (let l = j + 1; l < students.length; l++) { // inner loop
-//             let student3 = students[l];
-            
-//             console.log([student1, student2, student3]);
-//         }
-//     }
-// }
+    for (let j = i + 1; j < people.length; j++) {
+        let person2 = people[j];
+
+        for (let y = j + 1; y < people.length; y++) {
+            let person3 = people[y];
+            // console.log(person1, person2, person3);
+        }
+    }
+}
 
 
-/* 
+// Print all pairs of numbers that sum up to the target value
 
-Print all pairs of numbers that sum up to the target number
-twoSum([1,2,3,4,5,6,7], 5) => [1, 4], [2, 3], 
-*/
-let numbers = [1, 2, 3, 4, 5, 6, 7];
-//                i
-//                               j
+function twoSum(arr, target) {
+    let newArr = [];
+    
+    for (let i = 0; i < arr.length; i++) {
+        let num1 = arr[i];
 
-function twoSum(arr, target) { // [1,2,3,4,5,6,7]
-    for (let i = 0; i < arr.length; i++) { // 1
-        let num1 = arr[i]; // 2
+        for (let j = i + 1; j < arr.length; j++) {
+            let num2 = arr[j];
 
-        for (let j = i + 1; j < arr.length; j++) { // 2
-            let num2 = arr[j] //  3
-            let sum = num1 + num2; // 5
-
-            if (sum === target) {
-                console.log([arr[i], arr[j]]);
+            if (num1 + num2 === target) {
+                console.log([num1, num2]);
             }
         }
     }
 }
 
-// twoSum(numbers, 8);
+// twoSum([1,2,3,4,5,6], 5); // => [1,4], [2,3]
 
+// - Traverse over a 2-dimensional array (matrix)
 
-// Traverse thru multiple layers
-
-let matrix = [
-    [1,2,3],
-    [4,5,6, 45],
-    [7,8,9, 10, 23]
-];
-
-// console.log(matrix[0][0]);
-
+let matrix = [ [1,2,3], [4,5,6], [7,8,9] ];
+//        i: |    0    |   1    |    2   |
+//        j:   0  1  2   0 1 2    0 1 2
 
 for (let i = 0; i < matrix.length; i++) {
     let sub = matrix[i]; // [1,2,3]
 
     for (let j = 0; j < sub.length; j++) {
         let ele = sub[j];
+       
+        // console.log(ele);
+    }
+}
+
+let matrix2 = [
+    [1,2,3],
+    [4],
+    [8,9]
+];
+
+for (let i = 0; i < matrix2.length; i++) {
+    let sub = matrix2[i]; // [1,2,3]
+
+    for (let j = 0; j < sub.length; j++) {
+        let ele = sub[j];
+       
+        // console.log(ele);
+    }
+}
+
+for (let i = matrix2.length - 1; i >= 0; i--) {
+    let newSub = matrix2[i]; // [8,9]
+
+    for (let j = newSub.length - 1; j >= 0; j--) {
+        let ele = newSub[j];
 
         // console.log(ele);
     }
 }
 
-// matrix=[["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]
-// i      |       0        |       1       |        2       |
-// j         0    1    2      0    1    2      0     1    2
+let cats = [
+    {
+        name: 'Cheesecake',
+        toys: ['yarn', 'feather', 'doll']
+    },
+    {
+        name: 'Pudding',
+        toys: ['cat tower', 'scratch post', 'laser pointer']
+    },
+    {
+        name: 'Alley Cat',
+        toys: ['Fish Bones', 'Empty soda can']
+    }
+]
 
+for (let i = 0; i < cats.length; i++) {
+    let cat = cats[i]; // object
+    let toys = cat.toys; // ['yarn', 'feather', 'doll'] // 
 
-let matrix1 = [
-    ['a','b','c'], 
-    ['d'], 
-    ['g','h']
-];
-
-
-function printReverse(arr) {
-    for (let i = arr.length - 1; i >= 0; i--) {
-        let arr1 = arr[i];
-
-        for (let j = arr1.length - 1; j >= 0; j--) {
-            let charEle = arr1[j];
-
-            console.log(charEle);
-        }
+    for (let j = 0; j < toys.length; j++) {
+        let toy = toys[j];
+        console.log(cat.name +" plays with  "+ toy);
     }
 }
 
-printReverse(matrix1)// => h, g, d....
 
 
-/* 
+// Cheesecake plays with yarn... Cheesecake plays with doll... Pudding plays with laser pointer
 
-Given a 2D array of altitudes return the coordinates of the highest point in the
-geography grid.
-
-ex.
-getHighestCoordinateOnAPlane(geography) => [2,2]
-because at the location of geography[2][2] => 6
-*/
 
 function getHighestCoordinateOnAPlane(plane) {
     // code here;
 }
   
-  var geography = [
+var geography = [
     [0, 2, 3, 0],
     [1, 4, 3, 1],
     [1, 5, 6, 4],
     [0, 4, 3, 2],
-  ]
-  
-console.log(getHighestCoordinateOnAPlane(geography)); 
-  // => [2, 2] => 6
+];
 
-  var geography1 = [
+var geography1 = [
     [-10, -2, -3, -10],
-    [-1, -4, -3, -12],
-    [-1, -5, -6, -4],
-    [-6, -4, -3, -2],
-  ]
+    [-1, -4, -3, -10],
+    [-10, -5, -6, -4],
+    [-10, -4, -3, -2],
+];
+console.log(getHighestCoordinateOnAPlane(geography));
+  // => [2, 2]
 
-console.log(getHighestCoordinateOnAPlane(geography1)); 
-
-
-function schoolPrez(votes) {
-    let prez = null; // [Adam]
-    let maxVotes = 0; // 10
-
-    for (let i = 0; i < votes.length; i++) {
-        let classObj = votes[i]; // { Adam: 10, Jenny: 3}
-        
-        for (let name in classObj) { // Adam
-            let pollCount = classObj[name]; // 10
-
-            if (pollCount >= maxVotes) {
-                prez = name;
-                maxVotes = pollCount;
-            }
-        }
-
-    }
-
-    return prez;
-}
-
-// let schoolVotes = [{ Henry: 6, Janice: 8}, { Adam: 10, Jenny: 3}, { Tyson: 16, Lisa: 18}];
-// console.log(schoolPrez(schoolVotes)) // => Lisa
-
-
+  console.log(getHighestCoordinateOnAPlane(geography1)); // => [1, 0]

@@ -1,23 +1,23 @@
 // 4 + 4 / 2
 
 // (2 + -7) * 3
-
-// 101 % 10
+ 
+//  101 % 10
 
 // 12 - 4 % 3
 
 // true && false
 
-// console.log(true && !(false || false)) // true
+// console.log(true && !(false || false)) // true // true && !false => true && true
 
 // console.log(false || true) // 
 
 // 'cat' + 'dog'
 // console.log(2)
 
-// console.log(2 + 'pizza'); // '2pizza'
+// console.log(2 + 'pizza'); // 2pizza piz + za
 
-// console.log(2 + '2'); // 
+// console.log(Number(2 + '2')); // '22' Number('22')
 
 // console.log(2.5 * 'fish'); // NaN
 
@@ -33,7 +33,7 @@
 
 // 2 > 1 || false
 
-// console.log('true' === true); // false
+// console.log('true' === true); // string (strict equal) bool // false
 
 // 10 % 2 === 0
 
@@ -54,49 +54,49 @@
 // 'new york'[1]
 
 var str = "san francisco";
-// console.log(str[2 * 3]) // a
+// console.log(str[2 * 3]) // 'a'
 
 var str2 = 'bootcamp'
 // console.log(str2[3].toUpperCase()) // 'T'
 
 // console.log(str2.indexOf('T')) // -1
 
-// console.log('bootcamp'.indexOf('camp')) //
+console.log('bootcamp'.indexOf('camp')) // 4
 
-// console.log('bootcamp'.indexOf('o') > -1) // 
+// console.log('bootcamp'.indexOf('o') > -1) // true 
 
-// console.log('science'.indexOf('x') === -1) // 
+// console.log('science'.indexOf('x') === -1) // true
 
 
 
 // 1
 var idx = 'abcde'.indexOf('D'); // -1
-idx = idx + 11; // 10 // idx += 11;
-// console.log(idx); // 10
+idx = idx + 11; // -1 + 11
+// console.log(idx); // 10 
 idx * 2; // 20
 // console.log(idx); // 10
 
 // 2
 var num = 33;
-var isEven = num % 2 === 0; // false
+var isEven = num % 2 === 0; // 
 // console.log(isEven); // false
 // console.log(!isEven); // true
 
 // 3
 var str1 = 'marker'; // 
-var num = 'whiteboard'.length - str1.length; // 10 - 6 => 4
+var num = 'whiteboard'.length - str1.length; // 
 // console.log(num); // 4
 var str2 = 'bootcamp';
 // console.log(str2[num].toUpperCase()); // 'C'
-var char = str2[num]; // 'c'
+var char = str2[num]; // 'C'
 // console.log(char + '!'); // 'c!'
 
 // 4 
 
 var sentence = 'welcome to bootcamp prep'; 
-// console.log(sentence.length);
-// var lastChar = sentence[sentence.length - 1]; // p
-// console.log(lastChar); // 'p'
+// console.log(sentence.length); // number of characters in sentence
+var lastChar = sentence[sentence.length - 1]; //  p
+// console.log(lastChar); // p
 // console.log(sentence.indexOf(lastChar)); // 18
 
 
@@ -114,17 +114,20 @@ var age = 30; // try different numbers here
 // }
 
 // 6
-// var str = 'oller'; // 
+var str = 'rollercopa'; // 
 
 // if (str.length > 10) {
 
 //   console.log('long string');
+
 // } else if (str[0] === 'p') {
 
-//     console.log('starts with p');
+//   console.log('starts with p');
+
 // } else {
 
 //   console.log('short string');
+
 // }
 
 

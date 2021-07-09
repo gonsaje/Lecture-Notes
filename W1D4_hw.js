@@ -27,22 +27,11 @@ function logEach(array) {
 //
 
 /* 
-receive start end
-init countDown var => array
-loop from start to end
-push each num to arr
 
-return the new arr
 */
 
 function range(start, end) {
-    let countDown = [];
 
-    for(let i = start; i <= end; i++) {
-        countDown.push(i);
-    }
-
-    return countDown;
 }
 
 // Examples:
@@ -59,23 +48,30 @@ function range(start, end) {
 //
 
 /* 
-init sum set to zero
-loop over array 
-add each ele to sum
-return sum
+receive an array of nums (array)
+create var (total)
 
+loop over nums array
+    - add each number to a var (total)
+
+
+return total sum of all num (number)
 */
 
 
-function sumArray(array) {
-    let sum = 0;
+function sumArray(array) { // [5, 6, 4]
+    let total = 0; // 15 
 
-    for (let i = 0; i < array.length; i++) {
-        let num = array[i];
-        sum += num;
+    //    [5, 6, 4]
+    // l:  1  2  3
+    // i:  0  1  2  3
+
+    for (let i = 0; i < array.length; i++) { // i = 3 < 3
+        let num = array[i]; // undefined
+        total += num;
     }
 
-    return sum;
+    return total;
 }
 
 // Examples:
@@ -91,27 +87,11 @@ function sumArray(array) {
 //
 
 /* 
-receive array of words (point A)
 
-init a new arr 
-loop over given words arr
-grab each indiv word (ele)
-set each word to uppercase and push uppercased word to new arr
-
-return a new array of original to all caps (point B)
 */
 
 function capWords(words) {
-    let capArr = [];
 
-    for (let i = 0; i < words.length; i++) {
-        let word = words[i].toUpperCase();
-        // let capWord = word.toUpperCase()
-
-        capArr.push(word);
-    }
-
-    return capArr;
 }
 
 // Example:
@@ -126,29 +106,30 @@ function capWords(words) {
 //
 
 /* 
-receive a str 
+receive sentence
+give each word in the sentence an index => .split() at space " " => an array of words | 'hello world' => ['hello", "world']
+create a new var (empty array) => to collect the period-ified words 
 
-init a new arr
-split up sent into words on a space
-loop over words
-add period to each indiv word and push to arr
-join arr to form new str
+loop over array of words
+    - with each word => add a period to each word => push the new word into empty arr
 
-return a new str with periods at the end of each word
+
+join new arr of words on a space | ['hello.', 'world.'] => 'hello. world.'
+return a sentence (string) (add a period to end of each word)
 */
 
 function wordPeriods(sentence) {
-    let newArr = [];
-    let words = sentence.split(" ");
+    let words = sentence.split(" "); // ['hello", "world']
+    let newWords = [];
 
     for (let i = 0; i < words.length; i++) {
-        let word = words[i];
-        let newWord = word + ".";
+        let word = words[i]; // "hello"
+        let newSent = word + "."; // "hello."
 
-        newArr.push(newWord);
+        newWords.push(newSent);
     }
 
-    return newArr.join(" ");
+    return newWords.join(" ");
 }
 
 
@@ -165,29 +146,28 @@ function wordPeriods(sentence) {
 //
 
 /* 
-receive array of num
+receive array of nums
+create a var to track the largest value in the arr
 
-init a new var to track value => set default to null;
-loop over array of nums
-compare each indiv num to max 
-    - if maxValue is null => set current value to be new max
-    - otherwise if current value is greater than max Value => set current value to be new max
+loop over the array
+    - compare current number with max var value
+        - if current num is greater => reassign the max to be the current num
 
-return the max value in the array
+return the largest element/value
 */
 
 function maxValue(array) {
-    let max = null;
-
+    let container = null; // the absence of a max
+    
     for (let i = 0; i < array.length; i++) {
-        let currentNum = array[i];
+        let num = array[i];
 
-        if (max === null || currentNum > max) {
-            max = currentNum;
-        }
+        if (num > container || container === null) {
+            container = num;
+        } 
     }
 
-    return max;
+    return container;
 }
 
 // Examples:
@@ -195,11 +175,8 @@ function maxValue(array) {
 // console.log(maxValue([12, 6, 43])); // => 43
 // console.log(maxValue([])); // => null
 // console.log(maxValue([-4, -10, 0.43])); // => 0.43
-
+// console.log(maxValue([-4, -10, -43])); // => -4
 /* 
-receive num and factor
-check if factor is factor of num
-return true if true
 
 
 */
@@ -242,36 +219,33 @@ function myIndexOf(array, target) {
 //
 
 /* 
-receive array and number
+receive array of nums and a number
+create new arr
 
-init new var factors (arr)
+loop thru array of nums
+    check if current num is a factor of the target number => if true push to new arr
 
-loop over given array
-look at each num
-check if each ele is a factor of given number 
-if true => push to factors arr
-
-return array of factors of given number
+return array of factors of the target num
 */
 
 function factorArray(array, number) { // [2,3,4,5,6]
-    let factors = [];
+    let factorsArr = [];
 
-    for (let i = 0; i < array.length; i++) { // i = 0
-        let ele = array[i]; // 2
+    for (let i = 0; i < array.length; i++) {
+        let num = array[i];
 
-        if (number % ele === 0) {
-            factors.push(ele);
+        if (number % num === 0) {
+            factorsArr.push(num);
         }
     }
 
-    return factors;
+    return factorsArr;
 }
 
 // Examples:
 // //
-console.log(factorArray([2,3,4,5,6],20)) // => [2,4,5]    
-console.log(factorArray([2,3,4,5,6],35)) // => [5]
-console.log(factorArray([10,15,20,25],5)) // => []
+// console.log(factorArray([2,3,4,5,6],20)) // => [2,4,5]    
+// console.log(factorArray([2,3,4,5,6],35)) // => [5]
+// console.log(factorArray([10,15,20,25],5)) // => []
 
 // 20 => 1, 2, 4, 5, 10, 20
