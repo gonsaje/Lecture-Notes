@@ -3,12 +3,9 @@
 
 // Strings
 
-// "hello"
-// 'hello'
+// "kevin's chair"
+// 'Marco said, "hello"'
 // `hello`
-
-// "kevin's"
-// 'please insert you "name" here'
 
 // All strings have a truthy value except an empty string ("")
 
@@ -17,269 +14,168 @@
 // L: 12345
 // I: 01234
 
+// Built-In methods for Strings
+
+// <string>[<indexNum>]
+// console.log( "hello"[3] ); // "l"
+
+// <string>.length: get the length of given string
+// console.log("hello world".length)
+
+// console.log( "goodbye moon, goodbye bed, doobye clock"["goodbye moon, goodbye bed, doobye clock".length - 1] ) 
 
 
-// "hello nice to meet you im in bootcamp prep".length - 1 => last index of a string
+// <string>.toUpperCase(); => returns an uppercased version of the string (does not change the original string)
+// console.log( "hello world".toUpperCase() )
 
-// <string>[indexNum] => returns character stored at the specific index
+// <string>.toLowerCase(); => returns an lowercased version of the string (does not change the original string)
+// console.log( "GoODbYE MoON".toLowerCase() )
 
-// "hello"[1] => 'e'
-// "hello"[2] =>'l'
-// console.log("kevin likes to see the koalas at the zoo"["kevin likes to see the koalas at the zoo".length - 1]); 
+// <mainString>.indexOf(<searchStr>) => returns the index of the first instance of searchStr in mainStr
+// returns -1 if searchStr is never found in mainStr
+// console.log( "my name is jae jae jae jae".indexOf("name") );
 
-// string.length => returns the length of string
-// "hello".length => 5
+// <mainString>.includes(<searchStr>) => returns true if searchStr exists in mainStr, otherwise false
+// console.log("We are learning JavaScript".includes("learna"))
 
-// Built-In Methods for Strings
+// <string>.slice(start, <end (optional)>) => returns a segmented string from the4 start index (inclusive)
+// all the way up to the end index (exclusive)
+// If no end index is inputted, the slice goes all the way to the end
 
-// <string>.toUpperCase()=> returns a uppercased version of the string (does not change original string)
-// console.log("hello world".toUpperCase()); // camelCase => first word is all lowercase and all following words are titleized
+// console.log( "hello world".slice(1, 5) )
+// console.log( "hello world".slice(1) )
 
-// <string>.toLowerCase()=> returns a lowercased version of the string (does not change original string)
-// console.log("GOODBYE MOON".toLowerCase());
-
-// <mainStr>.indexOf(<searchStr>) => return the index of the first instance of searchStr in mainStr (if not found then returns -1)
-// What is the index of searchStr in mainStr
-// <mainStr> is the string we are searching thru
-// <searchStr> is the string we are searching for
-// console.log("hello".indexOf("l"));
-// console.log("kevin likes to see the koalas at the zoo".indexOf("hoala"));
-
-// <mainStr>.includes(<searchStr>) => return a boolean (true/false) if the  searchStr is in mainStr 
-// console.log("hello".includes("x"));
-// console.log("kevin likes to see the koalas at the zoo".includes(" at"));
-
-// <string>.slice(start, end) // returns a sliced string from start index (inclusive) up to end index (exclusive)
-// the end index is optional => if no end index is inputted, it will slice from the start all the way to the end
-// console.log("hello".slice(1, 3)) // => "ell"
-// console.log("hello world".slice(2)); // => "llo world"
 
 // Numbers
 
 // Operators: +, -, *, /
-// Modulo Operator (%) => gives back the remainer of a division problem
-// console.log(10 % 3); // 1
-// console.log(30 % 2); // 0
-// console.log(3 % 12); // 3
+// Modulo ( % ) => gives back the remainder of a division problem
+// console.log(2 % 11);
 
 // PEMMDAS
 
-// Booleans (Truthy & Falsey)
 
-// Falsey values: false, 0, "", undefined, null, NaN (not a number)
+// Booleans (truthy & falsey)
 
+// falsey values: false, 0, "", undefined, null, NaN
 // Comparisons:
 // <, >, <=, >=
-// console.log("hello".length <= 3);
+// console.log( "bye".length >= 5 )
 
-// === strict comparison: checks for both same value and same data type
+// === strict comparison: checks that both sides are the same value and same data type
 // == loose comparison: tries to find a point of equivalence
-// ! Bang operator => negates whatver it is added to
+// ! Bang operator => negates whatever it is added to
 // !== not equals
 
-// console.log(!false);
-// console.log(3 !== '3');
-// console.log(3 == '3');
+// OR operator || => only side of the statement has to be true to return true
+// AND operator && => both sides of the statment must be true to return true
 
-// OR operator || => only one side of the statment has to be true for it return true
-// AND operator && => both sides of the statement must be true for it return true
+// AND takes precedence over OR
+
+// console.log( true || false );
+// console.log( true && true );
+
+// console.log( "hello".length === 5 || "jumprope".includes("dump") && 4 !== 3 );
+
+// Undefined / Null
+
+// Null (human input) => a placeholder to indicate empty/falsey value
+// Undefined (computer output) => is returned when something is defined but doesn't hold any value
 
 
-// console.log("hello".length === 5 || "aeiou".includes("b")); // true || false => true
-// console.log("hello".length === 5 && "aeiou".includes("b")); // true && false => false
+// Type Coercion:
 
-//  AND takes precedence over the OR
 
-// console.log((6 % 2 !== 0 || 6 % 4 === 0) && 15 % 3 == 0 || 15 % 5 === 0 && 7 % 3 === 1); // false || false && true || true && true  =>    false || false || true   =>    true
+// Explicit
+// console.log( Boolean(55) );
+// console.log( Number("123"));
+// console.log( String(1000) );
 
-// Undefined/Null
+// Implcit
+// console.log(5 + " dogs")
+// console.log( 2 + "2");
+// console.log(!"hello");
+// console.log(2 * "fish");
 
-// Null (human input) => as a placeholder to indicate a falsey/empty value
-// Undefined (computer output) => is returned when something is defined, but no holds no value
-
-// Type Coercion
-
-// Explicit:
-// console.log("5");
-// console.log(Number("5"));
-// console.log(Boolean(11));
-// console.log(String(4));
-
-// Implicit:
-
-// console.log(5.0 + "");
-// console.log(6 + "dogs");
-// console.log(2 + "2");
-// console.log(!0);
-// console.log(3 * 'chocolate');
 
 // Variables
 // storage containers that can be evaluated
 
-// var myNum = 24; // outdate
-// let num = 25;
-// var str = "hello";
+var myNum = 5;
+// console.log( myNum );
+let myStr = "gummybears";
+// console.log( myStr );
 
-// console.log(num);
-// // console.log(str);
+let myVar;
+// console.log(myVar)
 
-// var str = "hello world"; // variable redefinition
-// str = "goodbye moon"; // variable reassignment
+let str = "hello world";
+// console.log( str[str.length - 1] )
 
+let num2 = 36;
+num2 = num2 + 3; // variable reassignment
+num2 += 3; //42
+
+num2 -= 10 // 32
+num2 *= 2 // 64
+num2 /= 8 // 8  num2 = num2 / 8;
+// console.log(num2);
+
+// let str2 = "hello";
+// str2 += "world";
+// console.log(str2);
+
+
+// Post-fix vs. Pre-fix
+
+// Post-fix:
+// num2++; // num2 += 1 | num2 = num2 + 1
+// num2--; // num2 -= 1 | num2 = num2 - 1
+
+// console.log(num2++); // 8
+// console.log(num2); // 9
+
+// // Pre-fix:
+// console.log(++num2); // 10
+// console.log(num2); // 10
+
+// console.log(str);
+// console.log(str.toUpperCase());
 // console.log(str);
 
 
-let num2 = 36;
-// console.log(num2 - 1);
-// num2 = num2 - 1;
-// console.log(num2);
-// num2 -= 1; // num2 = num2 - 1;
-// console.log(num2);
-// num2 += 5;
-// console.log(num2);
-// num2 /= 3;
-// console.log(num2);
-// num2 *= 2;
-// console.log(num2);
-
-
-// Post-fix vs. Pre-fix (always moves variable by 1 value)
-// num2++; // num2 -= 1 OR num2 = num2 - 1 (postfix)
-// console.log(num2); // 37
-// num2--;
-// console.log(num2) // 36
-
-// console.log(num2++);
-// console.log(num2);
-// console.log(++num2);
-// console.log(num2);
-
-
-let greeting = "bonjour"; // hello, bongiorno, hola, hey, hi
-
-// console.log(greeting[0]);
-// let lastIndex = greeting.length - 1;
-// console.log(greeting[lastIndex]);
-// greeting = greeting.slice(1).toUpperCase();
-// console.log(greeting);
-
-// console.log(greeting.indexOf("j"));
-
 // Conditionals
-// Each conditional chain can only have 1 'if' statement and 1 'else' statement, but as many 'else if' statements
+//  Each conditional chain can only have 1 "if" block and 1 "else" block, but however many "else if" blocks
 
-/* 
-
-if (<conditiional>) { // if this conditionals returns true*
-    <code block 1> // this block of code will execute*
-} else { // else serves as a catch-all if the previous conditional doesnt return true
-    <code block 2>
-}
-
-if (<conditiional>) { // if this conditionals returns true*
-    <code block 1> // this block of code will execute*
-} else if () {
-    <code block 2>
-} else { // else serves as a catch-all if the previous conditional doesnt return true
-    <code block 3>
-}
-*/
-
-// let number = 5;
-// check if a number is even
-// if (number % 2 === 0) {
-//     console.log(true);
-// } else if (number === 5) {
-//     console.log(number);
+// if (<condition>) {
+//      <code>
+// } else if (<condition2>) {
+//      <code2>
 // } else {
-//     console.log(false);
+//      <code3>
 // }
 
-// /////////////////////////////
+let exampleNum = 12;
 
-// if (number % 2 === 0) {
-//     console.log(true);
-// } 
-
-// if (number === 5) {
-//     console.log(number);
-// }
-
-// if (number % 2 !== 0) {
-//     console.log(false);
-// }
-
-
-// If the string is at least 10 characters (10 or greater) print "long string"
-// If it is shorter than 10 but longer than 5 print "medium string"
-// Otherwise print "short string"
-
-// let exampleStr = "book";
-
-// if (exampleStr.length >= 10) {
-//     console.log("long string");
-// } else if (exampleStr.length <= 9 && exampleStr.length >= 5) {
-//     console.log("medium string");
-// } else {
-//     console.log("short string");
-// }
-
-// let num3 = 30;
-
-// if (num3 % 3 === 0 ) {
-//     console.log('divisible by 3');
-// } else if (num3 % 5 === 0) {
-//     console.log('divisible by 5');
-// } else if (num3 % 5 === 0 && num3 % 3 === 0) { // unreachable
-//     console.log('divisible by 5 and 3');
-// } else {
-//     console.log("other");
-// }
-
-
-// let num4 = 30;
-
-// if (num3 % 5 === 0 && num3 % 3 === 0) {
-//     console.log('divisible by 5 and 3');
-// } else if (num3 % 5 === 0) {
-//     console.log('divisible by 5');
-// } else if (num3 % 3 === 0) { 
-//     console.log('divisible by 3');
-// } else {
-//     console.log("other");
-// }
-
-
-// We want to check if we left a good tip
-// If the tip is 15% or greater of the bill => print "good tip"
-// otherwise "bad tip"
-// bill * .15
-
-// let tip = 14;
-// let bill = 70;
-// let minTip = bill * .15;
-
-// if (tip >= minTip) {
-//     console.log("good tip");
-// } else {
-//     console.log("bad tip");
-// }
-
-
-// Your wife is asking you to help out around the house.
-// You tell her you'll help her if she says it nicely.
-// If the string ends with a '!' => say "please stop yelling"
-// otherwise => say "i can help"
-
-
-
-let request = 'hey';
-// console.log(request[0]);
-let lastIdx = request.length - 1;
-let lastChar = request[lastIdx];
-
-if (request[request.length - 1] === '!') {
-    console.log("please stop yelling");
+if (exampleNum > 25) {
+    console.log("REALLY BIG NUM");
+} else if (exampleNum === 23) {
+    console.log("it's 23");
+} else if (exampleNum % 2 === 0) {
+    console.log("is even");
 } else {
-    console.log("i can help");
+    console.log("didn't match anything else");
 }
+
+//// Adjacent Conditionals////
+
+if (exampleNum > 10) {
+    console.log("greater than 10");
+}
+
+if (exampleNum % 2 === 0) {
+    exampleNum += 2
+    console.log("even");
+}
+
+console.log(exampleNum);
