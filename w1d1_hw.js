@@ -8,18 +8,17 @@
 
 // true && false
 
-// console.log(true && !(false || false)) // true // true && !false => true && true
-
+// console.log( true && !(false || false) ) // true
 // console.log(false || true) // 
 
 // 'cat' + 'dog'
-// console.log(2)
 
-// console.log(2 + 'pizza'); // 2pizza piz + za
 
-// console.log(Number(2 + '2')); // '22' Number('22')
+// console.log(2 + 'pizza'); // '2pizza' 
 
-// console.log(2.5 * 'fish'); // NaN
+// console.log(2 + '2'); // 
+
+// console.log(2.5 * 'fish'); //
 
 // 5 >= 11
 
@@ -33,7 +32,7 @@
 
 // 2 > 1 || false
 
-// console.log('true' === true); // string (strict equal) bool // false
+// console.log( 'true' === true ); // false
 
 // 10 % 2 === 0
 
@@ -54,48 +53,48 @@
 // 'new york'[1]
 
 var str = "san francisco";
-// console.log(str[2 * 3]) // 'a'
+// console.log( str[2 * 3] ) // a
 
 var str2 = 'bootcamp'
-// console.log(str2[3].toUpperCase()) // 'T'
+// console.log(str2[3].toUpperCase()) // T
 
 // console.log(str2.indexOf('T')) // -1
 
-console.log('bootcamp'.indexOf('camp')) // 4
+// console.log('bootcamp'.indexOf('camp')) // 4
 
-// console.log('bootcamp'.indexOf('o') > -1) // true 
+// console.log('bootcamp'.indexOf('o') > -1) // 
 
-// console.log('science'.indexOf('x') === -1) // true
+// console.log('science'.indexOf('x') === -1) // 
 
 
 
 // 1
 var idx = 'abcde'.indexOf('D'); // -1
-idx = idx + 11; // -1 + 11
-// console.log(idx); // 10 
+idx = idx + 11; // 10
+// console.log(idx); // 10
 idx * 2; // 20
 // console.log(idx); // 10
 
 // 2
 var num = 33;
-var isEven = num % 2 === 0; // 
+var isEven = num % 2 === 0; // false
 // console.log(isEven); // false
 // console.log(!isEven); // true
 
 // 3
 var str1 = 'marker'; // 
-var num = 'whiteboard'.length - str1.length; // 
+var num = 'whiteboard'.length - str1.length; // 10 - 6 => 4
 // console.log(num); // 4
 var str2 = 'bootcamp';
-// console.log(str2[num].toUpperCase()); // 'C'
-var char = str2[num]; // 'C'
+// console.log(str2[num].toUpperCase()); // C
+var char = str2[num]; // c
 // console.log(char + '!'); // 'c!'
 
 // 4 
 
 var sentence = 'welcome to bootcamp prep'; 
-// console.log(sentence.length); // number of characters in sentence
-var lastChar = sentence[sentence.length - 1]; //  p
+// console.log(sentence.length); // 24
+// var lastChar = sentence[sentence.length - 1]; // p 23
 // console.log(lastChar); // p
 // console.log(sentence.indexOf(lastChar)); // 18
 
@@ -103,18 +102,18 @@ var lastChar = sentence[sentence.length - 1]; //  p
 // //CONDITIONALS
 
 // // 5
-var age = 30; // try different numbers here
+var age = 20; // try different numbers here
 
 // if (age > 30) {
 //   console.log('older than 30');
 // } else if (age === 30) {
-//   console.log('30 years old')
+//   console.log('30 years old');
 // } else {
 //   console.log('younger than 30');
 // }
 
 // 6
-var str = 'rollercopa'; // 
+var str = 'proller'; // 
 
 // if (str.length > 10) {
 
@@ -131,17 +130,17 @@ var str = 'rollercopa'; //
 // }
 
 
-var num = 45; // try different numbers here
+var num = 5; // try different numbers here
 
-// if (num % 3 === 0) {
-//   console.log('divisible by 3');
-// } else if (num % 5 === 0) {
-//   console.log('divisible by 5');
-// } else if (num % 15 === 0) { // 15 => 3 * 5
-//     console.log("both");
-// } else {
-//     console.log("the end");
-// }
+if (num % 15 === 0) {
+  console.log("both");
+} else if (num % 5 === 0) {
+  console.log('divisible by 5');
+} else if (num % 3 === 0) { 
+  console.log('divisible by 3');
+} else {
+  console.log("the end");
+}
 
 // // 8
 var num = 15; // try different numbers here
@@ -159,11 +158,11 @@ var num = 15; // try different numbers here
 var str = 'App AcademY'; // try different strings here
 
 if (str[0] === str[0].toUpperCase()) { 
-  console.log('starts with a capital!');
+  // console.log('starts with a capital!');
 }
 
 if (str[str.length - 1] === str[str.length - 1].toUpperCase()) { 
-  console.log('ends with a capital!');
+  // console.log('ends with a capital!');
 }
 
 // // 10
