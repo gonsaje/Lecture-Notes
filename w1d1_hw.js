@@ -6,15 +6,14 @@
 
 // 12 - 4 % 3
 
-// true && false
+// true && !(false || false)
 
-// console.log( true && !(false || false) ) // true
-// console.log(false || true) // 
+// console.log( !true && !(false || false) ) //   false && true => false
 
 // 'cat' + 'dog'
 
 
-// console.log(2 + 'pizza'); // '2pizza' 
+// console.log(2 + 'pizza'+ ); // '2pizza
 
 // console.log(2 + '2'); // 
 
@@ -56,15 +55,14 @@ var str = "san francisco";
 // console.log( str[2 * 3] ) // a
 
 var str2 = 'bootcamp'
-// console.log(str2[3].toUpperCase()) // T
-
+// console.log(str2[3].toUpperCase()) // 't' => T
 // console.log(str2.indexOf('T')) // -1
 
 // console.log('bootcamp'.indexOf('camp')) // 4
 
-// console.log('bootcamp'.indexOf('o') > -1) // 
+// console.log('bootcamp'.indexOf('o') > -1) // true
 
-// console.log('science'.indexOf('x') === -1) // 
+// console.log('science'.indexOf('x') === -1) // true // does this not exist in this string
 
 
 
@@ -77,32 +75,32 @@ idx * 2; // 20
 
 // 2
 var num = 33;
-var isEven = num % 2 === 0; // false
+var isEven = num % 2 === 0; // 33 % 2 === 0 => 1 === 0 => // false
 // console.log(isEven); // false
 // console.log(!isEven); // true
 
 // 3
 var str1 = 'marker'; // 
 var num = 'whiteboard'.length - str1.length; // 10 - 6 => 4
-// console.log(num); // 4
+// console.log(num); //  4
 var str2 = 'bootcamp';
-// console.log(str2[num].toUpperCase()); // C
+// console.log(str2[num].toUpperCase()); //  c => C
 var char = str2[num]; // c
-// console.log(char + '!'); // 'c!'
+// console.log(char + '!'); //  c!
 
 // 4 
 
 var sentence = 'welcome to bootcamp prep'; 
 // console.log(sentence.length); // 24
-// var lastChar = sentence[sentence.length - 1]; // p 23
+var lastChar = sentence[sentence.length - 1]; // 23 => p
 // console.log(lastChar); // p
-// console.log(sentence.indexOf(lastChar)); // 18
+// console.log(sentence.indexOf(lastChar)); //  18
 
 
 // //CONDITIONALS
 
 // // 5
-var age = 20; // try different numbers here
+var age = 30; // try different numbers here
 
 // if (age > 30) {
 //   console.log('older than 30');
@@ -116,31 +114,25 @@ var age = 20; // try different numbers here
 var str = 'proller'; // 
 
 // if (str.length > 10) {
-
 //   console.log('long string');
-
 // } else if (str[0] === 'p') {
-
 //   console.log('starts with p');
-
 // } else {
-
 //   console.log('short string');
-
 // }
 
 
-var num = 5; // try different numbers here
+var num = 15; // try different numbers here
 
-if (num % 15 === 0) {
-  console.log("both");
-} else if (num % 5 === 0) {
-  console.log('divisible by 5');
-} else if (num % 3 === 0) { 
-  console.log('divisible by 3');
-} else {
-  console.log("the end");
-}
+// if (num % 3 === 0 ) { // num is a factor of 3
+//   console.log('divisible by 3');
+// } else if (num % 5 === 0) { // num is a factor of 5
+//   console.log('divisible by 5');
+// } else if (num % 15 === 0) { // num is factor 15
+//   console.log("both");
+// } else { // otherwise do this
+//   console.log("the end");
+// }
 
 // // 8
 var num = 15; // try different numbers here
@@ -155,14 +147,14 @@ var num = 15; // try different numbers here
 
 
 // // 9
-var str = 'App AcademY'; // try different strings here
+var str = 'App Academy'; // try different strings here
 
-if (str[0] === str[0].toUpperCase()) { 
-  // console.log('starts with a capital!');
+if (str[0] === str[0].toUpperCase()) {  // First letter capirtal
+  console.log('starts with a capital!');
 }
 
-if (str[str.length - 1] === str[str.length - 1].toUpperCase()) { 
-  // console.log('ends with a capital!');
+if (str[str.length - 1] === str[str.length - 1].toUpperCase()) {  // last letter is capital
+  console.log('ends with a capital!');
 }
 
 // // 10

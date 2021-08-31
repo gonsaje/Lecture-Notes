@@ -1,14 +1,22 @@
 // Data Modeling
-// Array vs. Objects
+// Arrays vs. Objects
 
-// Objects are better with complex data, and also are very quick to grab info
-// Not very good with iterating and sorting (there is no order, and sequence is not guaranteed)
+// Objects are better with complex data, and also very quick to grab info
+// Not very good with iterating and sorting (theres no order, and seq is not guaranteed)
+
+let obj = {
+    color: "red",
+    name: 'apple',
+    season: 'autumn'
+};
 
 // Arrays are great for sorting
-//  Require us to iterate over the entire arr (potentially expensive)
+// Require us to iterate over the entire arr (potentially expensive)
 
 let arr = [1,2,3,4,5];
-let obj = {k1: 1, k2: 2, k3: 3, k4: 4, k5: 5};
+
+
+
 
 // Ford, Mustang
 // Honda, Civic
@@ -17,81 +25,49 @@ let obj = {k1: 1, k2: 2, k3: 3, k4: 4, k5: 5};
 // Dodge, Charger
 // Kia, Rio
 
-let car = {
-    company: 'Ford',
-    model: 'Mustang',
-    year: 1991,
-    color: "red",
-    previousOwners: [{name: "ulises", yearsOwned: 10}]
-};
+// let car = {
+//     make: "Ford",
+//     model: "Mustang"
+// }
 
-// car.company;
-
-let vehicle = [["year", 1984], ["color", "blue"], ["company", "Honda"], ["model", "Civic"]];
-
-for (let i = 0; i < vehicle.length; i++) {
-    let pair = vehicle[i];
-    // console.log(pair);
-    if (pair[0] === "company") {
-        console.log(pair[1]);
-    }
-}
-
-// vehicle.forEach((pair) => {
-//     console.log(pair);
-// })
-
-// console.log(vehicle);
+// let car2 = [["make", "Ford"], ["model", "Mustang"]]
 
 let user1 = {
-    name: "Ulises",
-    status: "is learning JS",
-    age: 34,
-    photos: {},
-    friends: [{name: "Kevin"}, {name: 'Jae'}],
-    favNum: 12,
+    name: "Marco",
+    location: 'NY',
+    age: 66,
+    favNum: 24,
     posts: 9000
 }
 
 let user2 = {
-    name: "Brooke",
-    location: "Texas",
-    favFoods:["Apples", "Oranges", "Blueberries"],
-    favNum: 13,
-    posts: 365
-};
+    name: 'Anna',
+    location: 'NY',
+    age: 67,
+    favNum: 25,
+    posts: 1000
+}
+
 let user3 = {
-    name: "Ry",
-    location: "Texas",
-    favFoods:["Apples", "Oranges", "Blueberries"],
-    favNum: 42,
-    posts: 52
-};
+    name: 'Tashi',
+    location: 'DE',
+    age: 68,
+    favNum: 26,
+    posts: 19000
+}
 
-let user4 = {
-    name: "Frankelin",
-    location: "Texas",
-    favFoods:["Apples", "Oranges", "Blueberries"],
-    favNum: 99,
-    posts: 3000
-};
+let twitterUsers = [user2, user1 , user3];
 
-let nycUsers = [user1, user2, user3, user4];
+for (let i = 0; i < twitterUsers.length; i++) {
+    let pointer1 = twitterUsers[i];
 
-// console.log(nycUsers);
+    for (let j = i + 1; j < twitterUsers.length; j++) {
+        let pointer2 = twitterUsers[j];
 
-for (let i = 0; i < nycUsers.length; i++) {
-    let pointer1 = nycUsers[i];
-
-    for (let j = i + 1; j < nycUsers.length; j++) {
-        let pointer2 = nycUsers[j];
-
-        if (pointer1.posts < pointer2.posts) {
-            [nycUsers[i], nycUsers[j]] = [nycUsers[j], nycUsers[i]];
+        if (pointer1.favNum < pointer2.favNum) {
+            [twitterUsers[i], twitterUsers[j]] = [twitterUsers[j], twitterUsers[i]]
         }
     }
 }
 
-// console.log("               ");
-
-// console.log(nycUsers);
+console.log(twitterUsers);

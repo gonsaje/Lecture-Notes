@@ -1,9 +1,8 @@
 // Recursion
 
 // Call Stack
-// A data structure that handles all code executions
+// A data structure that handle all code executions
 // First In, Last Out
-
 
 function hello() {
     console.log("hello");
@@ -12,27 +11,17 @@ function hello() {
 // hello();
 
 
-
-/*
-      
-
-
-            f1(1)
-//////////CALL STACK///////////
- */
-
-function f1(num) { // 1 // execution flow: current line being executed
-    f2(num + 1); // f2(1 + 1) // paused function
+function f1(num) { // execution flow: current line being executed
+    f2(num + 1); // paused function: 
     console.log(num);
 }
 
-function f2(num) { // 2
-    // execution context
-    f3(num + 1); // f3(2 + 1)
+function f2(num) {
+    f3(num + 1);
     console.log(num);
 }
 
-function f3(num) { // 3
+function f3(num) {
     f4(num + 1);
     console.log(num);
 }
@@ -43,83 +32,91 @@ function f4(num) {
 
 // f1(1);
 
+
+
 // What is Recursion?
 // Recursion is a process (function) that calls upon itself
-// If a problem can be solved recursively, it can also be solve iteratively
-
+// If a problem can be solved recursively, it can also be solved iteratively
 
 // Anatomy of a Recursive Function
 // - BaseCase/EdgeCase | Situations that lie beyond the logic or would break the logic
-// - Different Input on each recursive call => moves us closer to the base case
-// - Return statement => ends recursive call
+// - Different Input on each recursive call => move us closer to the base case
+// - Return statement => end the recursive call
 
+// iterative example
 
-// iteratively
-// for (let i = 1; i < 10; i -= 2) { // different input
-//     if (i >= 10) { // basecase
-//         // console.log("All Done!");
-//         break; // return 
+// for (let i = 1; true; i += 1) { // different input
+//     if (i >= 8) { // basecase
+//         console.log("All Done");
+//         break; // return statement
 //     }
 
-//     // console.log(i)
+//     console.log(i)
 // }
 
 
-
-// recursively
-
-// Count from a given number up to 10
+// recursive example
 
 function countUp(num) {
-    if (num >= 10) {
-        console.log("All Done");
-        return; // end
+    if (num >= 3) { // basecase
+        console.log("All done");
+        return; // break recursive call
     }
 
-    countUp(num + 1);
+    countUp(num + 1); // different input
     console.log(num);
 }
 
-// countUp(4)
+// countUp(1)
+
+//////CALL STACK//////
 
 // Common Downfalls of Recursion
 // - No BaseCase / Wrong BaseCase
 // - Forgetting to return or returning the wrong thing
 // - Stack Overflow (beefy functions, different input doesn't move towards basecase, etc.)
 
-// Print all Numbers greater than or equal to 0
-// BaseCase: when num < 0 print "Blast OFF" and end recursive call
+// Print all numbers greater than or equal 0
+
 
 function countDown(num) {
-    if (num < 0) {
-        console.log("Blast Off");
-        return;
+    if (num <= 0) { // base case
+        console.log("Blast Off!");
+        return; // return statement (end recursion)
     }
 
-    console.log(num);
-    countDown(num - 1);
+    console.log(num); // current num
+    countDown(num - 1); // decrement (different input)
 }
 
-// countDown(10);
+// countDown(-112);
+/* 
+10
+9
+8
+.
+.
+.
+"Blast Off!"
+*/
 
+// Recursively find the factorial of a given number
 
-// BaseCase: if (num === 0 || num === 1) => return 1;
-
-function factorial(num) { // 4
-    if (num <= 1) {
+function factorial(num) {
+    if (num === 1 || num === 0) { // basecase
         return 1;
     }
 
     return num * factorial(num - 1);
 }
 
+console.log(factorial(4)) // => 4 * 3 * 2 * 1 => 24 | 4 * 3! => 3! => 3 * 2!
+// console.log(factorial(1)) // => 1 
+// console.log(factorial(0)) // => 1
+// console.log(factorial(15))
+// console.log(factorial(6))
+// console.log(factorial(7))
 
-console.log(factorial(4)); // 24 => 4 * 3 * 2 * 1 => 24
-console.log(factorial(0)); // 1
 
-
-
-
-
-
-//////////////CALL STACK//////////////
+// factorial(4) => 4 * 6 => 24
+////Call Stack/////////////////

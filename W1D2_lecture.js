@@ -2,126 +2,89 @@
 
 let num1 = 1;
 let num2 = 2;
-let num3 = 3
+let num3 = 3;
 
-
-// console.log( ((num1 + 5) / 2) * 500 );
-// console.log( ((num2 + 5) / 2) * 500 );
+// console.log( (num1 + 5) / 2 * 500);
+// console.log( (num2 + 5) / 2 * 500);
+// console.log( (num3 + 5) / 2 * 500);
 
 // Functions
-// Storage containers for a block of code that we want to run
+// Storage containers for blocks of code that we want to run
 
-// Function declaration
+// Function Declaration
+        // function name is the ref point
+function funcName(parameter1, parameter2) { //parameters: the variables/dimensions the function is dealing with
 
-function sayHello(name) { // parameter: variable/placeholder for data that the function will use
-    console.log("Hello " + name);
+    console.log(parameter1 + parameter2 + "inside the func"); // block of code
+
+    return "this is the return value"; // end of the function
+
+    console.log("after the return");
 }
 
-// sayHello("Marco"); // argument
-// sayHello("Tumanah");
-// sayHello("Katie");
-// sayHello("Tashi");
-
+// let result = funcName(4, 5); // invocation (trigger the function)
+// let result2 = funcName(41, 5); 
+// console.log(result);
 
 // console.log() vs return
-// console.log() => prints a value to terminal/console
+// console.log() => prints a value to a terminal/console
 // return => outputs a value from a function and ends the function
 
-function greet(name) {
-    console.log("before");
+// Good Naming Conventions
 
-    return 'Bonjour ' + name;
-
-    console.log('after');
+function greetPerson(greeting, personName) {
+    return greeting + " " + personName;
 }
 
-// let result = greet("Zach");
-// console.log(result)
-
-// console.log(greet('Zach'))
-
-
-function greet2(name) {
-    console.log("before");
-
-    console.log("Bongiorno " + name);
-
-    console.log("after")
-}
-// if a function has no return statment, the function will return undefined
-// console.log(greet2("tashi"))
+// console.log( greetPerson('Biongiorno', 'Mark') );
+// console.log( greetPerson('Bonjour', 'Visshal') );
 
 // Function Expression
-let sayFarewell = function(name) {
-    return "Goodbye " + name;
-}
+// A function defined as a variable
 
-// console.log(sayFarewell("Anna"));
+let addAndMultiply = function(num1, num2) { // function block
+    let sum = num1 + num2;
+    let product = sum * 5;
 
-// Blocks of code
+    if (product > 50) { // if block
+        let example = "hello";
+        return "Big Number";
+    } else if (product === 26) { // else if block
 
-function f1() { // function block
-
-    if (!false) {
-        console.log("not false");
+        return "26";
     }
 
-    if (true) { // if block
-        console.log("true");
-    }
+    return "Didn't hit anything";
 }
+
+// console.log(addAndMultiply(3, 6)) ;
+
 
 // Helper Functions
+// To simplify a sectino of code in another function
 
-function example1(num) {
-    return "My result plus 3 is " + example2(num);
-}
+function addTwoNums(num1, num2) {
+    let sum = num1 + num2;
+    let product = multiplyBy5(sum);
 
-function example2(num) {
-    return num + 3;
-}
+    if (product > 50) { // if block
+        let example = "hello";
+        return "Big Number";
+    } else if (product === 26) { // else if block
 
-// console.log(example1(2))
-
-
-
-/* 
-Build me a function that takes in a number and multiplies it by 5
-If the result of that equation is greater than 50 => return 'BIG NUMBER'
-otherwise return 'small number
-*/
-
-/* 
-Gameplan:
-receving a number
-
-multiply the received number by 5
-
-if conditional => check if result is greater than 50
-    - return "BIG NUMBER" (If the result is greater than 50)
-otherwise
-    return "small number"
-*/
-
-function multi(num) {
-    // receving a number
-
-    // multiply the received number by 5
-    let result = num * 5;
-
-    if (result > 50) {
-        return "BIG NUMBER";
-    } else {
-        return "small number";
+        return "26";
     }
-    // if conditional => check if result is greater than 50
-    //     - return "BIG NUMBER" (If the result is greater than 50)
-    // otherwise
-    //     return "small number"
+
+    return "Didn't hit anything";
 }
 
-// console.log(multi(5));
-// console.log(multi(15));
+function multiplyBy5(num) {
+    return num * 5;
+}
+
+// console.log( addTwoNums(6, 8) )
+
+
 
 /* 
 Build me a function called totalPoints(twoPointers, threePointers) 
@@ -132,26 +95,60 @@ Return the total num of points the scored
 
 ex.
 totalPoints(3, 5) => 21
+
 */
 
+// Gameplan:
 /* 
-receive 2 nums
+receive two numbers (represents number of shots made)
 
-calc the total of two points (create new var)
-calc the toal of three points (create new var)
+multiplies 'x' num by 2 for Twopointers
+multiplies 'y' num by 3 for threepointers
 
-return a total (add two variables together)
+add those two number together
+
+return total value of points
 */
 
 function totalPoints(twoPointers, threePointers) {
-    let totalTwoPoints = twoPointers * 2;
-    let totalThreePoints = threePointers * 3;
+    let twoTotal = twoPointers * 2;
+    let threeTotal = threePointers * 3;
+    let total = twoTotal + threeTotal;
 
-    return totalTwoPoints + totalThreePoints;
+    return total;
 }
 
+// console.log( totalPoints(3, 5) )// => 21
 
-// console.log(totalPoints(15, 10));
+
+/* 
+If the amountTipped is at least 15% of the mealCost
+return good tip otherwise youre a bad tipper
+
+GamePlan:
+receive cost and tip
+
+calc 15% of mealCost
+
+compare good tip val w actual tip
+if its equal or greater than 15% => true
+
+otherwise => false
+
+*/
+
+function isGoodTip(mealCost, amountTipped) {
+    let baseline = mealCost * 0.15;
+
+    if (amountTipped >= baseline) {
+        return true;
+    }
+
+    return false;
+}
+
+// console.log( isGoodTip(300, 20) );
+// console.log( isGoodTip(120, 20) );
 
 
 // Is it my chore?
@@ -160,19 +157,20 @@ function totalPoints(twoPointers, threePointers) {
 // Otherwise it is your chore 
 
 /* 
-receive a str
+receive a str (sentence)
 
-check if str has 'Do' => not my chore
-else => not my chore
+conditional (if/else)
+=> see if string includes 'Do not' a the beginning
+
+return boolean
 */
 
-function isMyChore(str) {
-
-    if (str.indexOf("Do not") === 0) { //  if it starts with Do then executre this
+function isMyChore(sentence) {
+    if (sentence.indexOf('Do not') === 0) {
         return false;
-    } else {
-        return true;
     }
+
+    return true;
 }
 
 // Examples
