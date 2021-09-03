@@ -5,105 +5,104 @@
 // iterate over a data type
 // to repeatedly execute some set of code
 
-// let arr = [1,2,3];
-
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i]);
-// }
-
-// for (let i = 2; i <= 5; i++) {
-//     console.log("hello");
-// }
-
 // Nested Loops
 
-// Find Pairs / Mult Pointers
+// for (let i = 0; i < 3; i++) {
+//     console.log("outer loop " + i);
 
-for (let i = 0; i < 3; i++) {
-    // console.log("outer loop  " +  i)
-    for (let j = 0; j < 5; j++) {
-        // console.log("                           inner loop " + j)
+//     for (let j = 0; j < 5; j++) {
+//         console.log("                   inner loop " + j);
+//     }
+// }
+
+// Find pairs/ Multiple Pointers
+
+let students = [ "Visshal", "Christian", "Ras", "Mark"];
+//                  i
+//                               j
+
+// Non Unique Pairs
+for (let i = 0; i < students.length; i++) {
+    let student1 = students[i];
+
+    for (let j = 0; j < students.length; j++) {
+        let student2 = students[j];
+
+        // console.log( [student1, student2] );
     }
 }
 
-let classArr = ["Tashi", "Zach", "Anna", "Katie", "Marco"];
-//                                                   i       
-//                                                          j
+// Unique Pairs
+for (let i = 0; i < students.length; i++) {
+    let student1 = students[i];
 
-for (let i = 0; i < classArr.length; i++) {
-    let classmate1 = classArr[i];
+    for (let j = i + 1; j < students.length; j++) {
+        let student2 = students[j];
 
-    for (let j = i + 1; j < classArr.length; j++) {
-        let classmate2 = classArr[j];
-
-        // console.log([classmate1,classmate2]);
+        // console.log( [student1, student2] );
     }
-
 }
 
-
-
+// Notes:
+// Keep an eye out for when you need unique pairs and when you need non-unique
+// Keep a tab on the inner incrementation
+/////////////////////////////////
+// find all unique pairs of nums in the array that add up to the target num
 function twoSum(arr, target) {
     for (let i = 0; i < arr.length; i++) {
-        let num1 = arr[i];
+        let ele = arr[i];
 
         for (let j = i + 1; j < arr.length; j++) {
-            let num2 = arr[j];
+            let ele2 = arr[j];
+            let sum = ele + ele2;
 
-            for (let y = j + 1; y < arr.length; y++) {
-                let num3 = arr[y]
-
-                if (num1 + num2 + num3 === target) {
-                    console.log( [num1, num2, num3] );
-                }
+            if (sum === target) {
+                console.log( [ele, ele2] );
             }
         }
     }
 }
 
-// twoSum([1,2,3,4,5,6], 8) // => [1, 4], [2, 3]
+// twoSum([-1,0,1,2,3,4,5,6], 5) // => [1, 4], [2, 3]
 
+// Iterate over multiple levels of complex datatypes (matrix = 2-dimensional array)
 
-
-// Traverse over multiple dimensions of nested arrays (matrix)
-
-let matrix = [ [1,2,3], [4,5,6], [7,8,9] ]
-//      i:   |    0    |   1    |   2    |
-//      j:   |  0,1,2  | 0,1,2  | 0,1,2  |
-
+let matrix = [[1,2,3], [4,5,6], [7,8,9]];
+//     i:        0        1         2
+//     j:   |  0 1 2  | 0 1 2  | 0 1 2 |
 for (let i = 0; i < matrix.length; i++) {
-    let subArr = matrix[i];
+    let sub = matrix[i];
 
-    for (let j = 0; j < subArr.length; j++) {
-        let num = subArr[j];
+    for (let j = 0; j < sub.length; j++) {
+        let ele = sub[j]; // matrix[i][j]
 
-        // console.log(num);
+        // console.log(ele);
     }
-
 }
 
-let matrix1 = [ [ [1,2,3], [4,5,6] ]]
-//      i:   |    0    |   1    |   2    |
-//      j:   |  0,1,2  | 0,1,2  | 0,1,2  |
+// Sub Arrays can be different lengths
 
-for (let i = 0; i < matrix1.length; i++) {
-    let subArr = matrix1[i];
+let matrix3 = [[1,2,3], [4,5], [7]];
+//      i:        0       1     2
+//      j:   |  0 1 2  | 0 1  | 0 |
+for (let i = 0; i < matrix.length; i++) {
+    let sub = matrix[i];
 
-    for (let j = 0; j < subArr.length; j++) {
-        let subSub = subArr[j];
+    for (let j = 0; j < sub.length; j++) {
+        let ele = sub[j]; // matrix[i][j]
 
-        for (let y = 0; y < subSub.length; y++) {
-            let num = subSub[y];
-    
-            
-            // console.log(num);
-        }
-    
-
+        // console.log(ele);
     }
-
 }
 
+
+let matrix2 = [
+    [1,2,3], // [0, 0], [0, 1], [0 , 2]
+    [4,5,6], // [1, 0], [1, 1], [1, 2]
+    [7,8,9]  // [2, 0], [2, 1] ,[2, 2]
+];
+
+// console.log( matrix[2][1] )
 
 let obj = {
     key1: [1,2,3,4],
@@ -111,11 +110,11 @@ let obj = {
     property3: [true, false, true]
 }
 
-for (let key in obj) { // str2
-    let all = obj[key]; // ["HELLO", "BYE"]
+for (let key in obj) {
+    let valueArr = obj[key];
 
-    for (let i = 0; i < all.length; i++) {
-        let ele = all[i];
+    for (let i = 0; i < valueArr.length; i++) {
+        let ele = valueArr[i];
 
         // console.log(ele);
     }

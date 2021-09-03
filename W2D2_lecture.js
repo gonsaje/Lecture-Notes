@@ -135,7 +135,7 @@ function countChars(word) { // hello
     return count;
 }
 
-console.log(countChars(str));
+// console.log(countChars(str));
 
 var votingResults = [
     "Janice",
@@ -159,15 +159,41 @@ var votingResults = [
 
 
 function countVotes(pollResults) {
+    let totalVotes = {};
 
+    for (let i = 0; i < pollResults.length; i++) {
+        let vote = pollResults[i]; // "Janice";
+
+        if (totalVotes[vote] === undefined) {
+            totalVotes[vote] = 1;
+        } else {
+            totalVotes[vote] += 1;
+        }
+    }
+
+    return totalVotes
 }
 
 console.log(countVotes(votingResults)); // {Henry:6, Janice: 8, Andrew: 3}
 ////////////////////////////////////////////
 
-let result = countVotes(pollResults)
-function classPrez(totalCount) {
+let result = countVotes(votingResults)
 
+// MaxValue Pattern
+function classPrez(totalCount) {
+    let max = null; // track highest number of votes
+    let winner = null; // track name of winner
+
+    for (let name in totalCount) {
+        let voteCount = totalCount[name];
+
+        if (max === null || max < voteCount) {
+            max = voteCount;
+            winner = name;
+        }
+    }
+
+    return winner + " is the class president.";
 }
 
 console.log(classPrez(result)); // Janice is the class president.
